@@ -1,4 +1,4 @@
-## Utenti DBMS
+# Utenti DBMS
 
 | Utente DBMS | Permessi |
 |-------------|----------|
@@ -30,3 +30,9 @@
 | Libro | **isbn**, nome, pagine, sinossi, ... | | posseduto da Utente, scritto da Autore, pubblicato da Editore | |
 | Autore | | | | |
 | Editore | | | | |
+
+## Schema `audiobooks`
+
+## Schema `movies`
+
+## Schema `games`
