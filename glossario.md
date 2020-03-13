@@ -1,4 +1,6 @@
-# Utenti DBMS
+# Glossario 
+
+## Utenti DBMS
 
 | Utente DBMS | Permessi |
 |-------------|----------|
@@ -6,7 +8,7 @@
 | Moderatore | |
 | Amministratore | |
 
-# Schemas
+## Schemas
 
 | Schemas | Contenuti |
 |---------|-----------|
@@ -17,13 +19,13 @@
 | `games` | Contiene le tabelle relative ai giochi |
 | ... | ... |
 
-## Schema `public`
+### Schema `public`
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
 | Utente | **id**, username, hash_password, email | | | Questi sono gli utenti finali, che interagiscono con il database solo tramite applicazione. | 
 
-## Schema `books`
+### Schema `books`
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
@@ -32,15 +34,15 @@
 | Editore | **isbn_id**, nome | | pubblica dei Libri | |
 | Recensione | **_id interno_**, valutazione, testo | | scritta da Utente, riguardante un Libro |
 
-## Schema `audiobooks`
+### Schema `audiobooks`
 
 <span style="color: orange;">TODO</span>
 
-## Schema `movies`
+### Schema `movies`
 
 <span style="color: orange;">TODO</span>
 
-## Schema `games`
+### Schema `games`
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
