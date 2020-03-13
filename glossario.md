@@ -27,12 +27,24 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Libro | **isbn**, nome, pagine, sinossi, ... | | posseduto da Utente, scritto da Autore, pubblicato da Editore | |
-| Autore | | | | |
-| Editore | | | | |
+| Libro | **isbn**, nome, pagine, sinossi, ... | | posseduto da Utenti, scritto da Autori, pubblicato da Editore | |
+| Autore | **_id interno_**, nome, cognome, ... | | scrive dei Libri | |
+| Editore | **isbn_id**, nome | | pubblica dei Libri | |
+| Recensione | **_id interno_**, valutazione, testo | | scritta da Utente, riguardante un Libro |
 
 ## Schema `audiobooks`
 
+<span style="color: orange;">TODO</span>
+
 ## Schema `movies`
 
+<span style="color: orange;">TODO</span>
+
 ## Schema `games`
+
+| Nome | Dati | Sinonimi | Collegamenti | Note |
+|------|------|----------|--------------|------|
+| Gioco | **_id interno_**, nome | | posseduto da Utenti, sviluppato da Aziende, pubblicato da Azienda, appartenente a Generi | |
+| Generi | **_id interno_**, nome | | a cui appartengono Giochi | |
+| Azienda | **_id interno_**, nome | | che ha sviluppato Giochi, che ha pubblicato Giochi | |
+| Recensione | **_id interno_**, valutazione, testo | | scritta da Utente, riguardante un Gioco |
