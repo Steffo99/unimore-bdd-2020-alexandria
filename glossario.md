@@ -62,7 +62,12 @@ Come si potrebbero gestire i giochi posseduti su piattaforme diverse?
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| ... | ... | ... | ... | ... | ... |
+| Film | **_id_**, nome, durata | | Posseduto da Utenti, recitato da Attori, diretto da Regista, prodotto da Azienda, appartenente a Generi |  |
+| Generi | **_id interno_**, nome | | a cui appartengono Film | |
+| Regista | **_id interno_**, nome, ... | | dirige il Film | |
+| Azienda | **_id interno_**, nome | | Casa produttrice di Film | |
+| Attori | ... |  | Recitano nel Film |potrebbero venirci buone statistiche coi dati derivati, o può diventare un caos |
+| Recensione | **_id interno_**, valutazione, testo | | scritta da Utente, riguardante un Film |
 
 ### Schema `games`
 
@@ -77,4 +82,5 @@ Come si potrebbero gestire i giochi posseduti su piattaforme diverse?
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| ... | ... | ... | ... | ... | ... |
+| Tv-Serie | **_id interno_**, nome, episodi, durata_episodio |  | Posseduto da Utenti, prodotto da Azienda, ... |  |
+| Azienda | **_id interno_**, nome | | Casa produttrice di Tv-Serie | |
