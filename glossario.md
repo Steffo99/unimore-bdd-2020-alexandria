@@ -54,13 +54,13 @@ Gli audiolibri alla fine sono edizioni diverse di libri, giusto? Se ricordo bene
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Libro | titolo originale, sinossi | | scritto da Autori, con più Edizioni, con più Audioedizioni | |
-| Edizione | isbn, titolo, pagine, copertina | _Libro_ (ambiguo) | di un Libro, posseduta da più Utenti, pubblicata da un Editore | il titolo originale non serve perchè distinguiamo tra i libri con gli ISBN |
+| Libro | titolo originale, sinossi | testo, saggio, romanzo, opuscolo | scritto da Autori, con più Edizioni, con più Audioedizioni | |
+| Edizione | isbn, titolo, pagine, copertina | _Libro_ (ambiguo), pubblicazione, stampa | di un Libro, posseduta da più Utenti, pubblicata da un Editore | il titolo originale non serve perchè distinguiamo tra i libri con gli ISBN |
 | Audioedizione | isbn, titolo, durata | | di un Libro, posseduta da più Utenti, pubblicata da un Editore, narrata da uno o più Narratori | 
-| Autore | nome | | scrive dei Libri | |
+| Autore | nome | scrittore | scrive dei Libri | |
 | Editore | nome | | pubblica delle Edizioni | |
-| Narratore | nome | | narra delle Audioedizioni | |
-| Recensione | valutazione, testo, data | | scritta da Utente, riguardante un Libro posseduto |
+| Narratore | nome | voce narrante | narra delle Audioedizioni | |
+| Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante un Libro posseduto |
 
 ### Schema `movies`
 
@@ -72,7 +72,7 @@ Gli audiolibri alla fine sono edizioni diverse di libri, giusto? Se ricordo bene
 | Genere | nome | | a cui appartengono i Film | |
 | _qualcuno che ha lavorato in un film_ | nome | "attore", "regista", "scenografo", "produttore esecutivo" | ruolo nel film | I ruoli sono specificati nella tabella Ruolo |
 | Ruolo | nome | | di _qualcuno che ha lavorato in un film_ | |
-| Recensione | valutazione, testo, data | | scritta da Utente, riguardante un Film guardato |
+| Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante un Film guardato |
 
 ### Schema `games`
 
@@ -80,11 +80,11 @@ Gli audiolibri alla fine sono edizioni diverse di libri, giusto? Se ricordo bene
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Gioco | nome, banner | | sviluppato da Aziende, pubblicato da Azienda, appartenente a Generi, con più Edizioni | |
+| Gioco | nome, banner | videogioco, videogame | sviluppato da Aziende, pubblicato da Azienda, appartenente a Generi, con più Edizioni | |
 | Edizioni | piattaforma | | di un Gioco, giocata da Utenti | | 
 | Generi | nome | | a cui appartengono Giochi | |
 | Azienda | nome | | che ha sviluppato Giochi, che ha pubblicato Giochi | |
-| Recensione | valutazione, testo, data, ore di gioco | | scritta da Utente, riguardante una Edizione giocata |
+| Recensione | valutazione, testo, data, ore di gioco | commento | scritta da Utente, riguardante una Edizione giocata |
 
 ### Schema `tv-series`
 
@@ -92,8 +92,8 @@ Gli audiolibri alla fine sono edizioni diverse di libri, giusto? Se ricordo bene
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Serie TV | nome, immagine | | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
+| Serie TV | nome, immagine | telefilm, fiction | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
 | Stagione | nome, immagine | | di una Serie TV, contiene più Episodi | |
-| Episodio | numero, durata, nome | | di una Stagione | | 
+| Episodio | numero, durata, nome | puntata | di una Stagione | | 
 | Casa produzione | nome | | produce Serie TV | |
-| Recensione | valutazione, testo, data | | scritta da Utente, riguardante una Serie TV guardata |
+| Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante una Serie TV guardata |
