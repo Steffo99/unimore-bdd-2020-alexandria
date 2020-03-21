@@ -2,7 +2,7 @@
 
 # Descrizione
 
-Si vuole realizzare una base di dati a supporto di un sito web che permetta la creazione, gestione e condivisione della propria raccolta multimediale, come è possibile fare su altri siti web, quali [aNobii](https://www.anobii.com/), [MyAnimeList](https://myanimelist.net/) e [The Backloggery](https://backloggery.com/)<!--Aggiungere altri esempi?-->.
+Si vuole realizzare una base di dati a supporto di un sito web che permetta la creazione, gestione e condivisione della propria raccolta multimediale, come è possibile fare su altri siti web, quali [aNobii](https://www.anobii.com/), [MyAnimeList](https://myanimelist.net/) e [The Backloggery](https://backloggery.com/).
 
 Il sito sarà suddiviso in sezioni, ciascuna riguardante un [media](https://it.wikipedia.org/wiki/Mezzo_di_comunicazione_di_massa) diverso:
 
@@ -17,34 +17,113 @@ Chiunque può registrarsi al sito web scegliendo un username univoco e inserendo
 
 Ogni utente avrà una sua raccolta multimediale, in cui potrà aggiungere, modificare e rimuovere elementi.
 
+### Amministratori
+
+Esisterà una tipologia particolare di utente: l'utente **amministratore**.
+
+Gli amministratori potranno modificare le raccolte multimediali di tutti gli utenti, in aggiunta alla propria.
+
+<!--Ho tolto i moderatori per semplificare.-->
+
+Inoltre, potranno decidere di __bannare__ <!--Bandire?--> utenti dal sito, impedendo loro di effettuare l'accesso e di conseguenza di interagire con la loro raccolta.
+
 ## Elementi
 
-Gli elementi <span style="background-color: yellow; color: black;">(Quali elementi? Qui forse serve qualche complemento generale per descriverli)</span> saranno suddivisi in quattro macrocategorie:
-- [Libri](https://it.wikipedia.org/wiki/Libro) e [audiolibri](https://it.wikipedia.org/wiki/Audiolibro)
-- [Film](https://it.wikipedia.org/wiki/Film)
-- [Videogiochi](https://it.wikipedia.org/wiki/Videogioco)
-- [Serie televisive](https://it.wikipedia.org/wiki/Fiction_televisiva#Serie_televisiva).
+Gli utenti potranno aggiungere _elementi_ alla loro raccolta multimediale.
 
-Ogni elemento avrà una sua pagina con le informazioni salienti, e potrà ricevere una recensione (vedi sotto) da parte dell'utente
+Un elemento rappresenta una copia di un libro, di un film, di una stagione di una serie TV o di un videogioco posseduta da un utente.
+
+Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per ogni tipologia:
+
+- Libro
+    - Da iniziare
+    - Iniziato
+    - Finito
+    - Abbandonato
+- Film
+    - Da vedere
+    - Visto
+- Serie TV
+    - Da iniziare
+    - Iniziata
+    - Finita
+    - Abbandonata
+- Videogioco
+    - Da iniziare
+    - Iniziato
+    - Finito
+    - Completato al 100%
+
+Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
+
+- Libro
+    - Acquistato (su supporto fisico)
+    - Acquistato (su supporto digitale)
+    - Preso in prestito (da restituire)
+    - Perso / Venduto / Restituito / Non più posseduto
+    - Altro 1 <!--Piratato, ma non si può dire apertamente-->
+    - Altro 2
+    - Altro 3
+- Film
+    - Acquistato (su supporto fisico)
+    - Visto al cinema
+    - Visto in televisione
+    - Visto su un servizio di streaming
+    - Preso in prestito (da restituire) <!--C'è ancora qualcuno che prende film in prestito?-->
+    - Perso / Venduto / Restituito / Non più posseduto
+    - Altro 1 <!--Piratato, ma non si può dire apertamente-->
+    - Altro 2
+    - Altro 3
+- Serie TV
+    - Acquistata (su supporto fisico)
+    - Vista in televisione
+    - Vista su un servizio di streaming
+    - Presa in prestito (da restituire)
+    - Persa / Venduta / Non più posseduto
+    - Altro 1 <!--Piratato, ma non si può dire apertamente-->
+    - Altro 2
+    - Altro 3
+- Videogioco 
+    - Gratuito
+    - Acquistato
+    - Giocato in abbonamento
+    - Preso in prestito (da restituire)
+    - Perso / Venduto / Restituito / Non più posseduto
+    - Altro 1 <!--Piratato, ma non si può dire apertamente-->
+    - Altro 2
+    - Altro 3
 
 ## Recensioni
 
-Ogni utente può lasciare la sua recensione ad un elemento, composta da una valutazione (un numero da 0 a 100) e un commento. Le recensioni vengono scritte dagli utenti, e possono essere modificate o eliminate dai Moderatori e Amministratori, se essi credono non siano adeguate o inerenti.
-<span style="background-color: yellow; color: black;">Le recensioni di un dato elemento saranno poi visualizzabili nella sua pagina. (sarà così?)</span>
+Un utente potrà lasciare una recensione ad ogni elemento presente nella sua raccolta.
+
+La recensione sarà composta da una valutazione (tra 0 e 100, dove 100 è la valutazione migliore) e un commento.
+
+La media delle valutazioni delle recensioni relativa a un dato libro / film / serie TV / videogioco sarà poi visualizzata nella relativa pagina, assieme ad alcune recensioni selezionate casualmente.
+
+<!--Permettere alle recensioni di essere eliminate potrebbe portare a corruzione, meglio permettere solo di marcarle come nascoste, come fa Steam...-->
+
+Gli utenti potranno decidere in qualsiasi momento di eliminare una loro recensione.
+
+Gli amministratori **non potranno eliminare recensioni**, ma potranno marcarle come _nascoste_ nel caso le considerino inappropriate o non inerenti.
+
+Le recensioni nascoste potranno apparire nel sito, ma avranno un aspetto diverso e il commento all'interno non sarà visibile a meno che l'utente non clicchi un tasto.
 
 ## Libri ed edizioni
 
-<!--https://it.wikipedia.org/wiki/Template:Libro-->
+Ogni libro avrà una sua pagina in cui sarà presente il titolo originale, l'autore,i generi, un breve riassunto della trama e l'elenco di tutte le sue edizioni.
 
-Ogni libro avrà una pagina dove sarà presente il titolo originale, l'autore, un breve riassunto della trama e l'elenco di tutte le sue edizioni.
+Ciascuna edizione del libro avrà una seconda pagina con ulteriori informazioni, quali il suo titolo, la copertina, la casa editrice e il numero di pagine; ciascuna edizione sarà identificata da il relativo [codice ISBN](https://it.wikipedia.org/wiki/ISBN).
 
-Ciascuna edizione del libro avrà varie informazioni associate, quali il suo titolo, la copertina e il numero di pagine, e sarà identificata da il relativo [codice ISBN](https://it.wikipedia.org/wiki/ISBN).
+Recensioni e valutazione media saranno calcolate sia per libro, sia per edizione.
 
 ## Film
 
 <!--https://it.wikipedia.org/wiki/Template:Film-->
 
-<span style="background-color: yellow; color: black;">TODO</span>
+Ogni film avrà una sua pagina in cui sarà presente il titolo originale, i titoli nelle varie lingue (identificati dal [codice ISO 639 della lingua](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)), una sinossi della trama, la casa produttrice e l'elenco delle persone che compaiono nei crediti del film, assieme al loro ruolo.
+
+I film saranno identificati dal loro [codice EIDR](https://ui.eidr.org/search), e per ciascuno di essi verrà calcolata dalle recensioni la valutazione media, che sarà visualizzata sulla pagina assieme a un campione di recensioni.
 
 ## Videogiochi
 
