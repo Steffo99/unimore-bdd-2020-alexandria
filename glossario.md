@@ -38,8 +38,10 @@
 | Azienda | nome | | che ha sviluppato Giochi, che ha pubblicato Giochi | |
 | Recensione | valutazione, testo, data, ore di gioco | commento | scritta da Utente, riguardante una Edizione giocata |
 
-# Serie TV
+## Serie TV
 
+| Nome | Dati | Sinonimi | Collegamenti | Note |
+|------|------|----------|--------------|------|
 | Serie TV | nome, immagine | telefilm, fiction | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
 | Stagione | nome, immagine | | di una Serie TV, contiene più Episodi | |
 | Episodio | numero, durata, nome | puntata | di una Stagione | | 
