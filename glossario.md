@@ -1,36 +1,12 @@
 # Glossario 
 
-## Utenti DBMS
-
-<!--Sembra che non sia necessario che il database abbia più utenti...-->
-
-| Utente DBMS | Permessi |
-|-------------|----------|
-| Applicazione | |
-| Moderatore | |
-| Amministratore | |
-
-## Schemas
-
-<!--Ehi, a quanto pare non è necessario che il database abbia più schemas... Riuniamo tutto in uno schema unico? O così rimane più pulito? Uhhhh... Dovrei studiarmi un po' meglio gli schemas ^^'-->
-
-| Schemas | Contenuti |
-|---------|-----------|
-| `public` | Contiene le cose in comune tra tutto il database, come gli utenti del sito |
-| `books` | Contiene le tabelle relative ai libri |
-| `movies` | Contiene le tabelle relative ai film |
-| `games` | Contiene le tabelle relative ai giochi |
-| `tv-series` | Contiene le serie TV (inclusi anime) | 
-
-### Schema `public`
+## Utenti
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Utente | id, username, hash_password, email | | | Questi sono gli utenti finali, che interagiscono con il database solo tramite applicazione. | 
+| Utente | id, username, hash_password, email | | _tanti_ | Questi sono gli utenti finali, che interagiscono con il database solo tramite applicazione. |
 
-### Schema `books`
-
-> [Template:Libro](https://it.wikipedia.org/wiki/Template:Libro)
+## Libri
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
@@ -40,11 +16,9 @@
 | Autore | nome | scrittore | scrive dei Libri | |
 | Editore | nome | | pubblica delle Edizioni | |
 | Narratore | nome | voce narrante | narra delle Audioedizioni | |
-| Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante un Libro posseduto |
+| Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante una Edizione posseduta |
 
-### Schema `movies`
-
-> [Template:Film](https://it.wikipedia.org/wiki/Template:Film)
+## Film
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
@@ -54,9 +28,7 @@
 | Ruolo | nome | | di _qualcuno che ha lavorato in un film_ | |
 | Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante un Film guardato |
 
-### Schema `games`
-
-> [Template:Videogioco](https://it.wikipedia.org/wiki/Template:Videogioco)
+## Giochi
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
@@ -66,12 +38,8 @@
 | Azienda | nome | | che ha sviluppato Giochi, che ha pubblicato Giochi | |
 | Recensione | valutazione, testo, data, ore di gioco | commento | scritta da Utente, riguardante una Edizione giocata |
 
-### Schema `tv-series`
+# Serie TV
 
-> [Template:FictionTV](https://it.wikipedia.org/wiki/Template:FictionTV)
-
-| Nome | Dati | Sinonimi | Collegamenti | Note |
-|------|------|----------|--------------|------|
 | Serie TV | nome, immagine | telefilm, fiction | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
 | Stagione | nome, immagine | | di una Serie TV, contiene più Episodi | |
 | Episodio | numero, durata, nome | puntata | di una Stagione | | 
