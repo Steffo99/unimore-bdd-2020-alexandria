@@ -19,11 +19,18 @@ Ogni utente avrà una sua raccolta multimediale, in cui potrà aggiungere, modif
 
 ## Elementi
 
-<span style="background-color: yellow; color: black;">TODO</span>
+Gli elementi <span style="background-color: yellow; color: black;">(Quali elementi? Qui forse serve qualche complemento generale per descriverli)</span> saranno suddivisi in quattro macrocategorie:
+- [Libri](https://it.wikipedia.org/wiki/Libro) e [audiolibri](https://it.wikipedia.org/wiki/Audiolibro)
+- [Film](https://it.wikipedia.org/wiki/Film)
+- [Videogiochi](https://it.wikipedia.org/wiki/Videogioco)
+- [Serie televisive](https://it.wikipedia.org/wiki/Fiction_televisiva#Serie_televisiva).
+
+Ogni elemento avrà una sua pagina con le informazioni salienti, e potrà ricevere una recensione (vedi sotto) da parte dell'utente
 
 ## Recensioni
 
-<span style="background-color: yellow; color: black;">TODO</span>
+Ogni utente può lasciare la sua recensione ad un elemento, composta da una valutazione (un numero da 0 a 100) e un commento. Le recensioni vengono scritte dagli utenti, e possono essere modificate o eliminate dai Moderatori e Amministratori, se essi credono non siano adeguate o inerenti.
+<span style="background-color: yellow; color: black;">Le recensioni di un dato elemento saranno poi visualizzabili nella sua pagina. (sarà così?)</span>
 
 ## Libri ed edizioni
 
