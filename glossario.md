@@ -1,30 +1,8 @@
 # Glossario 
 
-## Idee
-
-### [Wikidata](https://www.wikidata.org/wiki/Wikidata:Main_Page)
-
-Si potrebbe usare l'id Wikidata di varie entità per ottenere dinamicamente informazioni su di esse...
-
-Ad esempio, se per ogni autore salviamo l'id wikidata abbiamo automaticamente immagine, luogo di nascita, account twitter e un sacco di altra roba!
-
-Però non so quanto possa piacere al prof., e magari c'è anche qualche altra controindicazione...
-
-### Giochi su più piattaforme
-
-Come si potrebbero gestire i giochi posseduti su piattaforme diverse?
-
-### Template di Wikipedia
-
-I template di Wikipedia danno un sacco di idee interessanti per dati che si possono mettere nelle varie tabelle...
-
-Ad esempio: [Template:FictionTV](https://it.wikipedia.org/wiki/Template:FictionTV)
-
-### Audiolibri
-
-Gli audiolibri alla fine sono edizioni diverse di libri, giusto? Se ricordo bene, anche loro hanno un isbn...
-
 ## Utenti DBMS
+
+<!--Sembra che non sia necessario che il database abbia più utenti...-->
 
 | Utente DBMS | Permessi |
 |-------------|----------|
@@ -33,6 +11,8 @@ Gli audiolibri alla fine sono edizioni diverse di libri, giusto? Se ricordo bene
 | Amministratore | |
 
 ## Schemas
+
+<!--Ehi, a quanto pare non è necessario che il database abbia più schemas... Riuniamo tutto in uno schema unico? O così rimane più pulito? Uhhhh... Dovrei studiarmi un po' meglio gli schemas ^^'-->
 
 | Schemas | Contenuti |
 |---------|-----------|
