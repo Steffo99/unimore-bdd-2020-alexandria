@@ -129,7 +129,11 @@ I film saranno identificati dal loro [codice EIDR](https://ui.eidr.org/search), 
 
 <!--https://it.wikipedia.org/wiki/Template:Videogioco-->
 
-<span style="background-color: yellow; color: black;">TODO</span>
+Ogni videogioco avrà una sua pagina in cui sarà presente il titolo, lo sviluppatore, il publisher, una breve descrizione del gioco e l'elenco di tutte le piattaforme in cui è disponibile.
+
+Per ogni piattaforma sarà disponibile una sottopagina, che conterrà la [box art](https://vgboxart.com/) di quella versione, il nome dello studio che ha effettuato il [porting](https://en.wikipedia.org/wiki/Porting#Porting_of_video_games) ed eventualmente il titolo [se diverso da quello principale](https://it.wikipedia.org/wiki/Payday_2#Crimewave_Edition). 
+
+Recensioni e valutazione media saranno disponibili sia per ogni singola piattaforma, sia per il gioco nel suo complesso.
 
 ## Serie televisive
 
