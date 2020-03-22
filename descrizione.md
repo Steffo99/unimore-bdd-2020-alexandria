@@ -111,9 +111,11 @@ Le recensioni nascoste potranno apparire nel sito, ma avranno un aspetto diverso
 
 ## Libri ed edizioni
 
-Ogni libro avrà una sua pagina in cui sarà presente il titolo originale, l'autore,i generi, un breve riassunto della trama e l'elenco di tutte le sue edizioni.
+Ogni libro avrà una sua pagina in cui sarà presente il titolo originale, l'autore,i generi, un breve riassunto della trama, l'elenco di tutte le sue edizioni, sia in formato libro sia in formato audiolibro.
 
 Ciascuna edizione del libro avrà una seconda pagina con ulteriori informazioni, quali il suo titolo, la copertina, la casa editrice e il numero di pagine; ciascuna edizione sarà identificata da il relativo [codice ISBN](https://it.wikipedia.org/wiki/ISBN).
+
+Le edizioni in formato audiolibro avranno attributi diversi: invece che avere il numero di pagine e la copertina, essi avranno la durata in minuti e secondi della registrazione e opzionalmente un'immagine che rappresenti l'audiolibro.
 
 Recensioni e valutazione media saranno calcolate sia per libro, sia per edizione.
 
@@ -138,5 +140,7 @@ Recensioni e valutazione media saranno disponibili sia per ogni singola piattafo
 ## Serie televisive
 
 <!--https://it.wikipedia.org/wiki/Template:FictionTV-->
+
+<!--Onestamente... non saprei cosa o come mettere, visto che non guardo quasi mai serie televisive. Hai per caso qualche idea?-->
 
 <span style="background-color: yellow; color: black;">TODO</span>
