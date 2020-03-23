@@ -57,6 +57,11 @@ Gli _Elementi_ non fanno parte del glossario, in quanto non sono entità bensì 
 | Serie TV | nome, immagine | telefilm, fiction | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
 | Stagione | nome, immagine | | di una Serie TV, contiene più Episodi | |
 | Episodio | numero, durata, nome | puntata | di una Stagione | | 
+| Genere | nome | | a cui appartengono le serie TV | |
+| _qualcuno che ha lavorato in una serie_ | nome | "attore", "regista", "scenografo", "produttore esecutivo" | ruolo nel film | I ruoli sono specificati nella tabella Ruolo |
+| Ruolo | nome | | di _qualcuno che ha lavorato in una serie_ | |
 | Casa produzione | nome | | produce Serie TV | |
+| Opera correlata | nome, supporto correlOpera | "Opera di ispirazione", "Remake", "Prequel", "Spin-off" | Collegata alla serie TV - il supporto viene specificato nell'apposita tabella | |
+| supporto correlOpera | nome |  "Libro", "Film", "Un'altra serie"...  | "contiene" l'opera correlata | |
 | Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante una Serie TV guardata |
 -->
