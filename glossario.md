@@ -22,27 +22,30 @@ Gli _Elementi_ non fanno parte del glossario, in quanto non sono entità bensì 
 | Narratore | nome | voce narrante | narra delle Edizioni (audio) | |
 | Recensione (libro) | valutazione, testo, data | commento, valutazione | scritta da un Utente, riguardante un Elemento |
 
-<span style="background-color: yellow; color: black;">Sono arrivato qui a controllare che il glossario sia appropriato per la descrizione.</span>
-
 ## Film
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Film | nome, durata, immagine | | guardato da Utenti, recitato da Attori, diretto da Regista, prodotto da Azienda, appartenente a Generi, scritto da Sceneggiatori | |
+| Film | codice EIDR, nome, durata, immagine | | guardato da Utenti, recitato da Attori, diretto da Regista, prodotto da Azienda, appartenente a Generi, scritto da Sceneggiatori | |
 | Genere | nome | | a cui appartengono i Film | |
 | _qualcuno che ha lavorato in un film_ | nome | "attore", "regista", "scenografo", "produttore esecutivo" | ruolo nel film | I ruoli sono specificati nella tabella Ruolo |
 | Ruolo | nome | | di _qualcuno che ha lavorato in un film_ | |
 | Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante un Film guardato |
 
+<span style="background-color: yellow; color: black;">What about quel "titoli nelle varie lingue"? Lo mettiamo assieme al nome?</span>
+
 ## Giochi
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Gioco | nome, banner | videogioco, videogame | sviluppato da Aziende, pubblicato da Azienda, appartenente a Generi, con più Edizioni | |
-| Edizioni | piattaforma | | di un Gioco, giocata da Utenti | | 
+| Gioco | nome, descrizione | videogioco, videogame | sviluppato da Sviluppatore, pubblicato da Publisher, appartenente a Generi, con più Edizioni | |
+| Edizioni | piattaforma, box art, studio porting, nome2 (opz.) | | di un Gioco, giocata da Utenti | | 
 | Generi | nome | | a cui appartengono Giochi | |
-| Azienda | nome | | che ha sviluppato Giochi, che ha pubblicato Giochi | |
+| Sviluppatore | nome | | che ha sviluppato Giochi | |
+| Publisher | nome | | che ha pubblicato Giochi | |
 | Recensione | valutazione, testo, data, ore di gioco | commento | scritta da Utente, riguardante una Edizione giocata |
+
+<span style="background-color: yellow; color: black;">Sono arrivata qui a controllare che il glossario sia appropriato per la descrizione.</span>
 
 ## Serie TV
 
