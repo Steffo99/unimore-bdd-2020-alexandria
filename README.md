@@ -1,4 +1,4 @@
-# `progetto-db`
+# `alexandria`
 
 Piattaforma per organizzare e condividere la propria libreria multimediale
 
