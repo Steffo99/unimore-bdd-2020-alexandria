@@ -22,5 +22,5 @@ Piattaforma per organizzare e condividere la propria libreria multimediale
     - [ ] Interrogazione
     - [ ] Modifica
     - [ ] Eliminazione
-- [ ] Extra
-    - [ ] Dare un nome al progetto
+- [x] Extra
+    - [x] ~~Dare un nome al progetto~~
