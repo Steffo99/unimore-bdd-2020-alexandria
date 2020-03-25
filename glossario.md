@@ -26,11 +26,12 @@ Gli _Elementi_ non fanno parte del glossario, in quanto non sono entità bensì 
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Film | codice EIDR, nome, durata, immagine | | guardato da Utenti, recitato da Attori, diretto da Regista, prodotto da Azienda, appartenente a Generi, scritto da Sceneggiatori | |
+| Film | codice EIDR, titolo originale, durata, immagine | | guardato da Utenti, recitato da Attori, diretto da Regista, prodotto da Azienda, appartenente a Generi, scritto da Sceneggiatori | |
 | Genere | nome | | a cui appartengono i Film | |
 | _qualcuno che ha lavorato in un film_ | nome | "attore", "regista", "scenografo", "produttore esecutivo" | ruolo nel film | I ruoli sono specificati nella tabella Ruolo |
 | Ruolo | nome | | di _qualcuno che ha lavorato in un film_ | |
 | Recensione | valutazione, testo, data | commento | scritta da Utente, riguardante un Film guardato |
+| Titolo tradotto | titolo alternativo, lingua | titolo | relativo a un Film | |
 
 <span style="background-color: yellow; color: black;">What about quel "titoli nelle varie lingue"? Lo mettiamo assieme al nome?</span>
 
@@ -38,7 +39,7 @@ Gli _Elementi_ non fanno parte del glossario, in quanto non sono entità bensì 
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Gioco | nome, descrizione | videogioco, videogame | sviluppato da Sviluppatore, pubblicato da Publisher, appartenente a Generi, con più Edizioni | |
+| Gioco | titolo, descrizione | videogioco, videogame | sviluppato da Sviluppatore, pubblicato da Publisher, appartenente a Generi, con più Edizioni | |
 | Edizioni | piattaforma, box art, studio porting, nome2 (opz.) | | di un Gioco, giocata da Utenti | | 
 | Generi | nome | | a cui appartengono Giochi | |
 | Sviluppatore | nome | | che ha sviluppato Giochi | |
@@ -54,7 +55,7 @@ Gli _Elementi_ non fanno parte del glossario, in quanto non sono entità bensì 
 <!--
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Serie TV | nome, immagine | telefilm, fiction | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
+| Serie TV | titolo, immagine, descrizione | telefilm, fiction | guardata da Utenti, prodotto da Casa produzione, suddivisa in Stagioni | |
 | Stagione | nome, immagine | | di una Serie TV, contiene più Episodi | |
 | Episodio | numero, durata, nome | puntata | di una Stagione | | 
 | Genere | nome | | a cui appartengono le serie TV | |

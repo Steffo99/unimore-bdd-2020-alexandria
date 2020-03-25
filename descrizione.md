@@ -141,6 +141,6 @@ Recensioni e valutazione media saranno disponibili sia per ogni singola piattafo
 
 <!--https://it.wikipedia.org/wiki/Template:FictionTV-->
 
-<!--Onestamente... non saprei cosa o come mettere, visto che non guardo quasi mai serie televisive. Hai per caso qualche idea?-->
+Ogni serie TV avrà una sua pagina in cui sarà presente il suo titolo, un'immagine che la rappresenti, una breve descrizione, l'elenco delle stagioni della serie e opzionalmente un elenco di serie TV correlate.
 
-<span style="background-color: yellow; color: black;">TODO</span>
+Ogni stagione di una serie TV avrà un'altra pagina con titolo, immagine e descrizione della stagione, e un elenco di 
