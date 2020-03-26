@@ -80,9 +80,7 @@ La media delle valutazioni delle recensioni relativa a un dato libro / film / se
 
 Gli utenti potranno decidere in qualsiasi momento di eliminare una loro recensione.
 
-Gli amministratori **non potranno eliminare recensioni**, ma potranno marcarle come _nascoste_ nel caso le considerino inappropriate o non inerenti.
-
-> Permettere alle recensioni di essere eliminate porta a imparzialità nelle valutazioni.
+Gli amministratori, oltre a poter decidere di eliminare recensioni, potranno marcarle come _nascoste_ nel caso le considerino inappropriate o non inerenti.
 
 Le recensioni nascoste potranno apparire nel sito, ma avranno un aspetto diverso e il commento all'interno non sarà visibile a meno che l'utente non clicchi un tasto.
 
