@@ -10,7 +10,7 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Elemento | stato, provenienza | | di una copia di un Libro / Film / Videogioco, posseduto da un Utente | |
+| Elemento | **id_interno**, stato, provenienza | | di una copia di un Libro / Film / Videogioco, posseduto da un Utente, correlato a un altro Elemento | |
 
 ## Recensioni
 
@@ -34,10 +34,10 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Film | **eidr**, titolo originale, sinossi, durata, immagine | | guardato da Utenti, realizzato da Cast, prodotto da Studio, appartenente a Generi, scritto da Sceneggiatori | |
+| Film | **eidr**, titolo originale, sinossi, durata, immagine | | guardato da Utenti (_elemento_), realizzato da Cast, prodotto da Studio, appartenente a Generi, scritto da Sceneggiatori | |
 | Genere | nome | | a cui appartengono i Film | |
-| Cast | nome | "attore", "regista", "scenografo", "produttore esecutivo" | ruolo nel film | I ruoli sono specificati nella tabella Ruolo |
-| Ruolo | nome | | di _qualcuno che ha lavorato in un film_ | |
+| Cast | nome | "attore", "regista", "scenografo", "produttore esecutivo" | Prende parte al Film, ha un Ruolo | I ruoli sono specificati nella tabella Ruolo |
+| Ruolo | nome | | di Cast | |
 | Studio | nome | azienda, casa produttrice | che ha prodotto un Film | |
 | Titolo tradotto | titolo alternativo, lingua | titolo | relativo a un Film | |
 
@@ -46,7 +46,7 @@
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
 | Gioco | titolo, descrizione | videogioco, videogame | sviluppato da Sviluppatore, pubblicato da Publisher, appartenente a Generi, con più Edizioni | |
-| Edizioni | piattaforma, box art, studio porting, nome2 (opz.) | | di un Gioco, giocata da Utenti | | 
+| Edizioni | piattaforma, box art, studio porting, nome2 (opz.) | | di un Gioco, giocata da Utenti (_elemento_) | | 
 | Generi | nome | | a cui appartengono Giochi | |
 | Sviluppatore | nome | | che ha sviluppato Giochi | |
 | Publisher | nome | | che ha pubblicato Giochi | |
