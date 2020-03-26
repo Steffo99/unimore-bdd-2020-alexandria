@@ -13,7 +13,7 @@ Piattaforma per organizzare e condividere la propria libreria multimediale
     - [x] Film
     - [x] Giochi
 - [ ] Progettazione concettuale
-    - [ ] Schema scheletro
+    - [ ] [Schema scheletro](/schema-scheletro.drawio)
     - [ ] Diagrammi ER
     - [ ] Schema ER finale    
 - [ ] Progettazione logica
