@@ -6,6 +6,12 @@ Piattaforma per organizzare e condividere la propria libreria multimediale
 
 - [x] [Descrizione](/descrizione.md)
 - [ ] [Glossario](/glossario.md)
+    - [x] Utenti
+    - [x] Elementi
+    - [x] Recensioni
+    - [x] Libri
+    - [ ] Film
+    - [ ] Giochi
 - [ ] Progettazione concettuale
     - [ ] Schema scheletro
     - [ ] Diagrammi ER
