@@ -1,5 +1,3 @@
-<!--Da quanto ho capito qui dobbiamo scrivere tutto all'impersonale...-->
-
 # Descrizione
 
 Si vuole realizzare una base di dati a supporto di un sito web che permetta la creazione, gestione e condivisione della propria raccolta multimediale, come è possibile fare su altri siti web, quali [aNobii](https://www.anobii.com/), [MyAnimeList](https://myanimelist.net/) e [The Backloggery](https://backloggery.com/).
@@ -24,9 +22,7 @@ Esisterà una tipologia particolare di utente: l'utente **amministratore**.
 
 Gli amministratori potranno modificare le raccolte multimediali di tutti gli utenti, in aggiunta alla propria.
 
-<!--Ho tolto i moderatori per semplificare.-->
-
-Inoltre, potranno decidere di __bannare__ <!--Bandire?--> utenti dal sito, impedendo loro di effettuare l'accesso e di conseguenza di interagire con la loro raccolta.
+Inoltre, potranno decidere di __bannare__ utenti dal sito, impedendo loro di effettuare l'accesso e di conseguenza di interagire con la loro raccolta.
 
 ## Elementi
 
@@ -102,15 +98,11 @@ Recensioni e valutazione media saranno calcolate sia per libro, sia per edizione
 
 ## Film
 
-<!--https://it.wikipedia.org/wiki/Template:Film-->
-
 Ogni film avrà una sua pagina in cui sarà presente il titolo originale, i titoli nelle varie lingue (identificati dal [codice ISO 639 della lingua](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)), una sinossi della trama, la casa produttrice, l'elenco delle persone che compaiono nei crediti del film, assieme al loro ruolo, e, come per i libri, una lista opzionale di pellicole correlate.
 
 I film saranno identificati dal loro [codice EIDR](https://ui.eidr.org/search), e per ciascuno di essi verrà calcolata la valutazione media dalle recensioni, che sarà visualizzata sulla pagina assieme a un campione di recensioni.
 
 ## Videogiochi
-
-<!--https://it.wikipedia.org/wiki/Template:Videogioco-->
 
 Ogni videogioco avrà una sua pagina in cui sarà presente il titolo, lo sviluppatore, il publisher, una breve descrizione del gioco, l'elenco di tutte le piattaforme in cui esso è disponibile e, come per libri e film, un elenco di altri giochi correlati.
 
