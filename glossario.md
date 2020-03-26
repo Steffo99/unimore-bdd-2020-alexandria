@@ -10,7 +10,7 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Elemento | **id_interno**, stato, provenienza | | di una copia di un Libro / Film / Videogioco, posseduto da un Utente, correlato a un altro Elemento | |
+| Elemento | stato, provenienza | | di una copia di un Libro / Film / Videogioco, posseduto da un Utente | |
 
 ## Recensioni
 
@@ -22,7 +22,7 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Libro | titolo originale, sinossi | testo, saggio, romanzo, opuscolo | scritto da uno o più Autori, appartenente a uno o più Generi, con più Edizioni (libro, audio) | |
+| Libro | titolo originale, sinossi | testo, saggio, romanzo, opuscolo | scritto da uno o più Autori, appartenente a uno o più Generi, con più Edizioni (libro, audio), correlato ad altri Libri | |
 | Genere | nome | | a cui appartengono i Libri | |
 | Edizione (libro) | **isbn**, titolo localizzato, pagine, copertina | _Libro_ (ambiguo), pubblicazione, stampa | di un Libro, posseduta da più Utenti (_Elemento_), pubblicata da un Editore | |
 | Edizione (audio) | **isbn**, titolo localizzato, durata, immagine | | di un Libro, posseduta da più Utenti (_Elemento_), pubblicata da un Editore, narrata da uno o più Narratori | |
@@ -34,7 +34,7 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Film | **eidr**, titolo originale, sinossi, durata, immagine | | guardato da Utenti (_elemento_), realizzato da Cast, prodotto da Studio, appartenente a Generi, scritto da Sceneggiatori | |
+| Film | **eidr**, titolo originale, sinossi, durata, immagine | pellicola | guardato da Utenti (_Elemento_), realizzato da Cast, prodotto da Studio, appartenente a Generi, scritto da Sceneggiatori, correlato ad altri Film | |
 | Genere | nome | | a cui appartengono i Film | |
 | Cast | nome | "attore", "regista", "scenografo", "produttore esecutivo" | Prende parte al Film, ha un Ruolo | I ruoli sono specificati nella tabella Ruolo |
 | Ruolo | nome | | di Cast | |
@@ -46,7 +46,7 @@
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
 | Gioco | titolo, descrizione | videogioco, videogame | sviluppato da Sviluppatore, pubblicato da Publisher, appartenente a Generi, con più Edizioni | |
-| Edizioni | piattaforma, box art, studio porting, nome2 (opz.) | | di un Gioco, giocata da Utenti (_elemento_) | | 
+| Edizioni | piattaforma, box art, titolo alternativo | | di un Gioco, giocata da Utenti (_Elemento_), portato da uno Sviluppatore | | 
 | Generi | nome | | a cui appartengono Giochi | |
-| Sviluppatore | nome | | che ha sviluppato Giochi | |
+| Sviluppatore | nome | | che ha sviluppato Giochi, che ha portato Edizioni | |
 | Publisher | nome | | che ha pubblicato Giochi | |

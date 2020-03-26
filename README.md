@@ -5,13 +5,13 @@ Piattaforma per organizzare e condividere la propria libreria multimediale
 ## Checklist
 
 - [x] [Descrizione](/descrizione.md)
-- [ ] [Glossario](/glossario.md)
+- [x] [Glossario](/glossario.md)
     - [x] Utenti
     - [x] Elementi
     - [x] Recensioni
     - [x] Libri
-    - [ ] Film
-    - [ ] Giochi
+    - [x] Film
+    - [x] Giochi
 - [ ] Progettazione concettuale
     - [ ] Schema scheletro
     - [ ] Diagrammi ER
