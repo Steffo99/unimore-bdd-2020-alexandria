@@ -74,7 +74,7 @@ Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
 
 Un utente potrà lasciare una recensione ad ogni elemento presente nella sua raccolta.
 
-La recensione sarà composta da una valutazione (tra 0 e 100, dove 100 è la valutazione migliore) e un commento.
+La recensione sarà composta da una valutazione (tra 0 e 100, dove 100 è la valutazione migliore), un commento e la data di pubblicazione.
 
 La media delle valutazioni delle recensioni relativa a un dato libro / film / serie TV / videogioco sarà poi visualizzata nella relativa pagina, assieme ad alcune recensioni selezionate casualmente.
 
@@ -88,7 +88,7 @@ Le recensioni nascoste potranno apparire nel sito, ma avranno un aspetto diverso
 
 ## Libri ed edizioni
 
-Ogni libro avrà una sua pagina in cui sarà presente il titolo originale, l'autore, i generi, un breve riassunto della trama, l'elenco di tutte le sue edizioni (sia in formato libro sia in formato audiolibro) e opzionalmente una lista di opere correlate (sequel, prequel, libri ambientati nello stesso universo, etc).
+Ogni libro avrà una sua pagina in cui sarà presente il titolo originale, gli autori, i generi, un breve riassunto della trama, l'elenco di tutte le sue edizioni (sia in formato libro sia in formato audiolibro) e opzionalmente una lista di opere correlate (sequel, prequel, libri ambientati nello stesso universo, etc).
 
 Ciascuna edizione del libro avrà una seconda pagina con ulteriori informazioni, quali il suo titolo, la copertina, la casa editrice e il numero di pagine; ciascuna edizione sarà identificata da il relativo [codice ISBN](https://it.wikipedia.org/wiki/ISBN).
 
@@ -98,7 +98,7 @@ Recensioni e valutazione media saranno calcolate sia per libro, sia per edizione
 
 ## Film
 
-Ogni film avrà una sua pagina in cui sarà presente il titolo originale, i titoli nelle varie lingue (identificati dal [codice ISO 639 della lingua](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)), una sinossi della trama, la casa produttrice, l'elenco delle persone che compaiono nei crediti del film, assieme al loro ruolo, e, come per i libri, una lista opzionale di pellicole correlate.
+Ogni film avrà una sua pagina in cui sarà presente il titolo originale, i titoli nelle varie lingue (identificati dal [codice ISO 639 della lingua](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes)), una sinossi della trama, la durata, la casa produttrice, l'elenco delle persone che compaiono nei crediti del film, assieme al loro ruolo, e, come per i libri, una lista opzionale di pellicole correlate.
 
 I film saranno identificati dal loro [codice EIDR](https://ui.eidr.org/search), e per ciascuno di essi verrà calcolata la valutazione media dalle recensioni, che sarà visualizzata sulla pagina assieme a un campione di recensioni.
 
