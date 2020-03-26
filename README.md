@@ -4,7 +4,7 @@ Piattaforma per organizzare e condividere la propria libreria multimediale
 
 ## Checklist
 
-- [ ] [Descrizione](/descrizione.md)
+- [x] [Descrizione](/descrizione.md)
 - [ ] [Glossario](/glossario.md)
 - [ ] Progettazione concettuale
     - [ ] Schema scheletro
@@ -23,4 +23,4 @@ Piattaforma per organizzare e condividere la propria libreria multimediale
     - [ ] Modifica
     - [ ] Eliminazione
 - [x] Extra
-    - [x] ~~Dare un nome al progetto~~
+    - [x] Dare un nome al progetto
