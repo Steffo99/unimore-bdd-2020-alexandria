@@ -4,7 +4,7 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Utente | id, username, hash della password, email, è amministratore, è bannato | user, admin, amministratore | possiede Elementi | |
+| Utente | username, hash della password, email, è amministratore, è bannato | user, admin, amministratore | possiede Elementi | |
 
 ## Elementi
 
