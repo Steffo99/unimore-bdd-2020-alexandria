@@ -28,7 +28,7 @@ Inoltre, potranno decidere di __bannare__ utenti dal sito, impedendo loro di eff
 
 Gli utenti potranno aggiungere _elementi_ alla loro raccolta multimediale.
 
-Un elemento rappresenta una copia di un libro, di un film, di una stagione di una serie TV o di un videogioco posseduta da un utente.
+Un elemento rappresenta una copia di un libro, di un film o di un videogioco posseduta da un utente.
 
 Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per ogni tipologia:
 
@@ -69,6 +69,9 @@ Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
     - Preso in prestito (da restituire)
     - Perso / Venduto / Restituito / Non più posseduto
     - Altro
+    
+Un utente è in grado di creare una nuova pagina di un determinato elemento (se, ad esempio, ha letto un libro non ancora registrato nel database). Per fare ciò dovrà inserire obbligatoriamente il tipo di elemento, il suo dato chiave e il titolo dell'opera, mentre gli altri campi sono facoltativi: possono essere inseriti per completezza, oppure lasciati vuoti. Un utente può inoltre modificare una pagina già esistente al fine di aggiungervi informazioni o correggere errori.
+Un amministratore è in grado di eliminare le pagine, in caso esse rappresentino elementi non realmente esistenti.
 
 ## Recensioni
 
