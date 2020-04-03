@@ -34,7 +34,7 @@
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
-| Film | **eidr**, titolo originale, sinossi, durata, immagine | pellicola | guardato da Utenti (_Elemento_), realizzato da Cast, prodotto da Studio, appartenente a Generi, scritto da Sceneggiatori, correlato ad altri Film | |
+| Film | **eidr**, titolo originale, sinossi, durata, locandina | pellicola | guardato da Utenti (_Elemento_), realizzato da Cast, prodotto da Studio, appartenente a Generi, scritto da Sceneggiatori, correlato ad altri Film | |
 | Genere | nome | | a cui appartengono i Film | |
 | Cast | nome | "attore", "regista", "scenografo", "produttore esecutivo" | Prende parte al Film, ha un Ruolo | I ruoli sono specificati nella tabella Ruolo |
 | Ruolo | nome | | di Cast | Il ruolo è un attributo! |
