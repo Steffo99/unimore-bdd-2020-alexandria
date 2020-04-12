@@ -12,32 +12,27 @@ Made as a collaboration between [@Steffo99](https://github.com/Steffo99/) and [@
 
 The specification for the project is available [in the `spec.pdf` file](/spec.pdf).
 
-## Progress
+## Tasks
 
 - [x] [Descrizione](/descrizione.md)
 - [x] [Glossario](/glossario.md)
-    - [x] Utenti
-    - [x] Elementi
-    - [x] Recensioni
-    - [x] Libri
-    - [x] Film
-    - [x] Giochi
-- [ ] Progettazione concettuale
-    - [x] [Schema scheletro](/schema-scheletro.drawio)
-    - [ ] Diagrammi ER
-    - [ ] Schema ER finale    
-- [ ] Progettazione logica
-    - [ ] Eliminazione delle gerarchie
-    - [ ] Selezioni chiavi primarie
-    - [ ] Trasformazione degli attributi composti o multipli
-    - [ ] Traduzione di entità e associazione in schemi di relazioni
-    - [ ] Verifica di normalizzazione
-- [ ] Operazioni previste dalla base di dati
-    - [ ] Creazione
-    - [ ] Inserimento
-    - [ ] Interrogazione
-    - [ ] Modifica
-    - [ ] Eliminazione
-- [ ] Extra
-    - [x] Dare un nome al progetto
-    - [ ] Unire i file markdown in un unico .pdf <!--Magari usando pandoc?-->
+- [x] [Schema scheletro](/schema-scheletro.drawio)
+- [x] [Identificazione delle autoassociazioni](/autoassociazione.md)
+- [x] [Identificazione delle chiavi esterne](/chiaviesterne.md)
+- [ ] ...?
+- [x] [Schema finale](/schema-finale.drawio)
+
+## Compiling
+
+### Requirements
+
+- [Pandoc](https://pandoc.org/)
+- [MiKTeX](https://miktex.org/)
+
+### Instructions
+
+To create PDF files from the Markdown sources in this project, you can run the Makefile with the `make` command, or compile them manually with the following command:
+
+```bash
+pandoc -o filename.pdf filename.md
+```
