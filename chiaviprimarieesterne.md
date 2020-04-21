@@ -6,7 +6,7 @@ Le recensioni di ogni utente saranno visualizzate nella pagina del libro, film o
 
 Si è pensato sarebbe stato appropriato permettere alle recensioni di essere associate agli elementi della libreria di ogni utente.
 
-![](/img/chiaveprimariaesterna.png)
+![](img/chiaveprimariaesterna.png)
 
 Essendo la relazione `riguardante` tra `Elemento` e `Recensione` una relazione _opzionale_ 1 a 1, si è deciso di utilizzare come chiave dell'entità `Recensione` l'ID (chiave primaria) dell'`Elemento` che riguarda.
 
