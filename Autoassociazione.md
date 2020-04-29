@@ -6,7 +6,7 @@ Oltre alle informazioni già presenti in ciascuna pagina, si è pensato che sare
 
 Pertanto si è deciso di inserire, per ognuna di queste tre categorie, una autoassociazione come quella in figura:
 
-![](/img/autoassociazione.png)
+![](img/autoassociazione.png)
 
 Un altra opzione precedentemente presa in considerazione fu quella di inserire un'unica autoassociazione, in corrispondenza dell'entità Elemento.
 
