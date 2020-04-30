@@ -12,7 +12,7 @@ Legenda:
 ### Utente
 - **Username**
 - Password
-- Email
+- _Email_
 - Amministratore
 - Bannato
 
@@ -28,56 +28,43 @@ Legenda:
 - Valutazione
 - Data
 
-## Giochi
+## Libri
 
-### Gioco
-- **UUID Gioco**
+### Libro
+- **UUID Libro**
+- Titolo originale
+- _Sinossi_
+
+### Editore
+- **Prefisso ISBN**
 - Nome
-- Descrizione
 
 ### Edizione
-- **UUID Edizione**
-- UUID Gioco → Gioco
+- **ISBN Editore** → Editore
+- **ISBN Resto**
+- UUID Libro → Libro
 - Titolo edizione
-- Piattaforma
-- Box art
 
 ### Correlato a 
-- **UUID Gioco 1** → Gioco (UUID Gioco)
-- **UUID Gioco 2** → Gioco (UUID Gioco)
+- **UUID Libro 1** → Libro (UUID Libro)
+- **UUID Libro 2** → Libro (UUID Libro)
 
-### Genere
-- **UUID Genere**
+### Autore
+- **UUID Autore**
 - Nome
 
-### Appartiene a
-- **UUID Gioco** → Gioco
-- **UUID Genere** → Genere
-
-### Studio 
-- **UUID Studio**
-- Nome
-
-### Portato da
-- **UUID Edizione** → Edizione
-- **UUID Studio** → Studio
-
-### Sviluppato da 
-- **UUID Gioco** → Gioco
-- **UUID Studio** → Studio
-
-### Pubblicato da 
-- **UUID Gioco** → Gioco
-- **UUID Studio** → Studio
+### Scritto da
+- **UUID Libro** → Libro
+- **UUID Autore** → Autore
 
 ## Film
 
 ### Film
 - **EIDR**
 - Titolo
-- Sinossi
-- Durata
-- Locandina
+- _Sinossi_
+- _Durata_
+- _Locandina_
 
 ### Genere
 - **UUID Genere**
@@ -117,32 +104,44 @@ Legenda:
 - **UUID Cast** → Cast
 - **UUID Ruolo** → Ruolo
 
-## Libri
+## Giochi
 
-### Libro
-- **UUID Libro**
-- Titolo originale
-- Sinossi
-
-### Editore
-- **Prefisso ISBN**
+### Gioco
+- **UUID Gioco**
 - Nome
+- _Descrizione_
 
 ### Edizione
-- **ISBN Editore** → Editore
-- **ISBN Resto**
-- UUID Libro → Libro
-- Titolo edizione
+- **UUID Edizione**
+- UUID Gioco → Gioco
+- _Titolo edizione_
+- Piattaforma
+- _Box art_
 
 ### Correlato a 
-- **UUID Libro 1** → Libro (UUID Libro)
-- **UUID Libro 2** → Libro (UUID Libro)
+- **UUID Gioco 1** → Gioco (UUID Gioco)
+- **UUID Gioco 2** → Gioco (UUID Gioco)
 
-### Autore
-- **UUID Autore**
+### Genere
+- **UUID Genere**
 - Nome
 
-### Scritto da
-- **UUID Libro** → Libro
-- **UUID Autore** → Autore
+### Appartiene a
+- **UUID Gioco** → Gioco
+- **UUID Genere** → Genere
 
+### Studio 
+- **UUID Studio**
+- Nome
+
+### Portato da
+- **UUID Edizione** → Edizione
+- **UUID Studio** → Studio
+
+### Sviluppato da 
+- **UUID Gioco** → Gioco
+- **UUID Studio** → Studio
+
+### Pubblicato da 
+- **UUID Gioco** → Gioco
+- **UUID Studio** → Studio
