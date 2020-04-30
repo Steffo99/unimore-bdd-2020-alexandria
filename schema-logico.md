@@ -1,57 +1,43 @@
-## Schema generico
+# Schema logico
 
-**Utente** (<ins>Username</ins>, Password, Email, è amministratore, è bannato)
+## Generale
 
+**Utente** (**Username**, Password, Email, Amministratore, Bannato)  
 // TODO: gestire la gerarchia
 
-**Elemento** (<ins>ID interno</ins>, Stato, Provenienza, Username)
+**Elemento** (**UUID**, Stato, Provenienza, Username)  
+FK: Username → Utente
 
-Fk: Username ref Utente 
+**Recensione** (**ID recensione**, Commento, Valutazione, Data, ID Interno)  
+FK: ID Interno → Elemento
 
-**Recensione** (<ins>ID recensione</ins>, Commento, Valutazione, Data, ID Interno)
+## Gioco
 
-Fk: ID Interno ref Elemento
+**Gioco** (**ID gioco**, nome, descrizione)
 
+**Edizione** (**ID Edizione**, titolo alternativo, piattaforma, box art, ID gioco)  
+FK: ID gioco → Gioco
 
+**Correlato a** (**ID gioco 1, ID gioco 2**)  
+FK: ID gioco 1 → Gioco  
+FK: ID gioco 2 → Gioco
 
-## Schema Gioco
+**Genere** (**ID/Nome**)
 
-**Gioco** (<ins>ID gioco</ins>, nome, descrizione)
+**Appartiene a** (**ID Gioco**, **ID/Nome**)  
+FK: ID Gioco → Gioco  
+FK: Id/Nome → Genere
 
-**Edizione** (<ins>ID Edizione</ins>, titolo alternativo, piattaforma, box art, ID gioco)
+**Studio** (**ID studio**, Nome)
 
-Fk: ID gioco ref Gioco
+**Portato da** (**ID edizione**, **ID studio**)  
+FK: ID edizione → Edizione  
+FK: ID studio → Studio
 
-**Correlato a** (<ins>ID gioco 1, ID gioco 2</ins>)
+**Sviluppato da** (**ID gioco**, **ID studio**)  
+FK: ID gioco → Gioco  
+FK: ID studio → Studio
 
-Fk: ID gioco 1 ref Gioco
-
-Fk: ID gioco 2 ref Gioco
-
-**Genere** (<ins>ID/Nome</ins>)
-
-**Appartiene a** (<ins>ID Gioco, ID/Nome</ins>)
-
-Fk: ID Gioco ref Gioco
-
-Fk: Id/Nome ref Genere
-
-**Studio** (<ins>ID studio,</ins> Nome)
-
-**Portato da** (<ins>ID edizione, ID studio</ins>)
-
-Fk: ID edizione ref Edizione
-
-FK: ID studio ref Studio
-
-**Sviluppato da** (<ins>ID gioco, ID studio</ins>)
-
-Fk: ID gioco ref Gioco
-
-FK: ID studio ref Studio
-
-**Pubblicato da** (<ins>ID gioco, ID studio</ins>)
-
-Fk: ID gioco ref Gioco
-
-FK: ID studio ref Studio
+**Pubblicato da** (**ID gioco**, **ID studio**)  
+FK: ID gioco → Gioco  
+FK: ID studio → Studio
