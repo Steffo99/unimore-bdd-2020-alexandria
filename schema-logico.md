@@ -2,42 +2,65 @@
 
 ## Generale
 
-**Utente** (**Username**, Password, Email, Amministratore, Bannato)  
+### Utente
+- **Username**
+- Password
+- Email
+- Amministratore
+- Bannato
+
 // TODO: gestire la gerarchia
 
-**Elemento** (**UUID**, Stato, Provenienza, Username)  
-FK: Username → Utente
+### Elemento
+- **UUID Elemento**
+- _Username_ → Utente
+- Stato
+- Provenienza
 
-**Recensione** (**ID recensione**, Commento, Valutazione, Data, ID Interno)  
-FK: ID Interno → Elemento
+### Recensione
+- _**UUID Elemento**_ → Elemento
+- Commento
+- Valutazione
+- Data
 
 ## Gioco
 
-**Gioco** (**ID gioco**, nome, descrizione)
+### Gioco
+- **UUID Gioco**
+- Nome
+- Descrizione
 
-**Edizione** (**ID Edizione**, titolo alternativo, piattaforma, box art, ID gioco)  
-FK: ID gioco → Gioco
+### Edizione
+- **UUID Edizione**
+- _UUID Gioco_ → Gioco
+- Titolo edizione
+- Piattaforma
+- Box art
 
-**Correlato a** (**ID gioco 1, ID gioco 2**)  
-FK: ID gioco 1 → Gioco  
-FK: ID gioco 2 → Gioco
+### Correlato a 
+- _**UUID Gioco 1**_ → Gioco (UUID Gioco)
+- _**UUID Gioco 2**_ → Gioco (UUID Gioco)
 
-**Genere** (**ID/Nome**)
+### Genere
+- **UUID Genere**
+- Nome
 
-**Appartiene a** (**ID Gioco**, **ID/Nome**)  
-FK: ID Gioco → Gioco  
-FK: Id/Nome → Genere
+### Appartiene a
+- _**UUID Gioco**_ → Gioco
+- _**UUID Genere**_ → Genere
 
-**Studio** (**ID studio**, Nome)
+### Studio 
+- **UUID Studio**
+- Nome
 
-**Portato da** (**ID edizione**, **ID studio**)  
-FK: ID edizione → Edizione  
-FK: ID studio → Studio
+### Portato da
+- _**ID Edizione**_ → Edizione
+- _**ID Studio**_ → Studio
 
-**Sviluppato da** (**ID gioco**, **ID studio**)  
-FK: ID gioco → Gioco  
-FK: ID studio → Studio
+### Sviluppato da 
+- **ID Gioco** → Gioco
+- **ID Studio** → Studio
 
-**Pubblicato da** (**ID gioco**, **ID studio**)  
-FK: ID gioco → Gioco  
-FK: ID studio → Studio
+### Pubblicato da 
+- **ID Gioco** → Gioco
+- **ID Studio** → Studio
