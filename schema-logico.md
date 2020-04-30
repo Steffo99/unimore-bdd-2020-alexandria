@@ -1,5 +1,12 @@
 # Schema logico
 
+Legenda:
+- **Grassetto**: Chiave primaria
+- → (Freccia): Chiave esterna
+- _Corsivo_: Attributo opzionale
+
+<!--TODO: Gestire le gerarchie, capire se è possibile usare il prefisso ISBN per identificare l'editore-->
+
 ## Generale
 
 ### Utente
@@ -9,21 +16,19 @@
 - Amministratore
 - Bannato
 
-// TODO: gestire la gerarchia
-
 ### Elemento
 - **UUID Elemento**
-- _Username_ → Utente
+- Username → Utente
 - Stato
 - Provenienza
 
 ### Recensione
-- _**UUID Elemento**_ → Elemento
+- **UUID Elemento** → Elemento
 - Commento
 - Valutazione
 - Data
 
-## Gioco
+## Giochi
 
 ### Gioco
 - **UUID Gioco**
@@ -32,30 +37,30 @@
 
 ### Edizione
 - **UUID Edizione**
-- _UUID Gioco_ → Gioco
+- UUID Gioco → Gioco
 - Titolo edizione
 - Piattaforma
 - Box art
 
 ### Correlato a 
-- _**UUID Gioco 1**_ → Gioco (UUID Gioco)
-- _**UUID Gioco 2**_ → Gioco (UUID Gioco)
+- **UUID Gioco 1** → Gioco (UUID Gioco)
+- **UUID Gioco 2** → Gioco (UUID Gioco)
 
 ### Genere
 - **UUID Genere**
 - Nome
 
 ### Appartiene a
-- _**UUID Gioco**_ → Gioco
-- _**UUID Genere**_ → Genere
+- **UUID Gioco** → Gioco
+- **UUID Genere** → Genere
 
 ### Studio 
 - **UUID Studio**
 - Nome
 
 ### Portato da
-- _**UUID Edizione**_ → Edizione
-- _**UUID Studio**_ → Studio
+- **UUID Edizione** → Edizione
+- **UUID Studio** → Studio
 
 ### Sviluppato da 
 - **UUID Gioco** → Gioco
@@ -79,12 +84,12 @@
 - Nome
 
 ### Appartiene a
-- _**EIDR**_ → Film
-- _**UUID Genere**_ → Genere
+- **EIDR** → Film
+- **UUID Genere** → Genere
 
 ### Localizzazione
 - **Lingua**
-- _EIDR_ → Film
+- EIDR → Film
 - Titolo localizzato
 
 ### Studio
@@ -92,12 +97,12 @@
 - Nome
 
 ### Prodotto da
-- _**EIDR**_ → Film
-- _**UUID Studio**_ → Studio
+- **EIDR** → Film
+- **UUID Studio** → Studio
 
 ### Correlato a 
-- _**UUID Film 1**_ → Film (UUID Film)
-- _**UUID Film 2**_ → Film (UUID Film)
+- **UUID Film 1** → Film (UUID Film)
+- **UUID Film 2** → Film (UUID Film)
 
 ### Ruolo
 - **UUID Ruolo**
@@ -111,3 +116,33 @@
 - **EIDR** → Film
 - **UUID Cast** → Cast
 - **UUID Ruolo** → Ruolo
+
+## Libri
+
+### Libro
+- **UUID Libro**
+- Titolo originale
+- Sinossi
+
+### Editore
+- **Prefisso ISBN**
+- Nome
+
+### Edizione
+- **ISBN Editore** → Editore
+- **ISBN Resto**
+- UUID Libro → Libro
+- Titolo edizione
+
+### Correlato a 
+- **UUID Libro 1** → Libro (UUID Libro)
+- **UUID Libro 2** → Libro (UUID Libro)
+
+### Autore
+- **UUID Autore**
+- Nome
+
+### Scritto da
+- **UUID Libro** → Libro
+- **UUID Autore** → Autore
+
