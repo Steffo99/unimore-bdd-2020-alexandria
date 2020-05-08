@@ -10,3 +10,5 @@ Ogni utente, nel suo profilo, ha la possibilità di gestire e aggiornare una lis
 ![](img/gerarchia2.png)
 
 La seconda gerarchia inserita riguarda invece le diverse edizioni di un libro: pur se relative allo stesso libro, le edizioni possono essere sia edizioni caracee (o ebook) sia edizioni audio. Le due categorie hanno attributi diversi: delle edizioni audio occorre sapere la durata in minuti, un'immagine rappresentativa e la voce narrante (che viene trattata come un'entità a parte), mentre nelle edizioni libro si vuole sapere il numero di pagine e la copertina; sono invece accomunate da tutte le altre relazioni, ad esempio l'essere relative ad uno stesso lbro. 
+
+Si è deciso di mantenere le entità di entrambe le gerarchie.
