@@ -30,6 +30,12 @@ Legenda:
 
 ## Libri
 
+### Elemento (libro)
+- **UUID Elemento** → Elemento
+- UUID Libro → Libro
+- _Stato_
+- _Provenienza_
+
 ### Libro
 - **UUID Libro**
 - Titolo originale
@@ -58,6 +64,12 @@ Legenda:
 - **UUID Autore** → Autore
 
 ## Film
+
+### Elemento (film)
+- **UUID Elemento** → Elemento
+- UUID Film → Film
+- _Stato_
+- _Provenienza_
 
 ### Film
 - **EIDR**
@@ -105,6 +117,12 @@ Legenda:
 - **UUID Ruolo** → Ruolo
 
 ## Giochi
+
+### Elemento (gioco)
+- **UUID Elemento** → Elemento
+- UUID Gioco → Gioco
+- _Stato_
+- _Provenienza_
 
 ### Gioco
 - **UUID Gioco**
