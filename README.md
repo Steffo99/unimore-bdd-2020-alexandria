@@ -1,4 +1,4 @@
-# `alexandria`
+# ![Alexandria](img/0-README/alexandria.png)
 
 A database for an hypotetical website for users to organize and share their media library.
 
@@ -12,15 +12,16 @@ Made as a collaboration between [@Steffo99](https://github.com/Steffo99/) and [@
 
 The specification for the project is available [in the `spec.pdf` file](/spec.pdf).
 
-## Tasks
+## Report structure
 
-- [x] [Descrizione](/descrizione.md)
-- [x] [Glossario](/glossario.md)
-- [x] [Schema scheletro](/schema-scheletro.drawio)
-- [x] [Identificazione delle autoassociazioni](/autoassociazione.md)
-- [x] [Identificazione delle chiavi esterne](/chiaviesterne.md)
-- [ ] ...?
-- [x] [Schema finale](/schema-finale.drawio)
+1. **[Descrizione](1-descrizione.md)**
+2. **[Glossario](2-glossario.md)**
+3. **Progettazione concettuale**
+    1. [Schema scheletro iniziale](3-1-schema-scheletro.md)
+    2. [Classificazione delle gerarchie](3-2-gerarchie.md)
+    3. [Identificazione delle autoassociazioni](3-3-autoassociazioni.md)
+    4. [Classificazione delle relazioni](3-4-relazioni.md)
+    5. [Schema scheletro finale](3-5-schema-finale.md)
 
 ## Compiling
 

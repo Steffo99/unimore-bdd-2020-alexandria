@@ -1,21 +1,11 @@
 # Glossario 
 
-## Utenti
+## Generale
 
 | Nome | Dati | Sinonimi | Collegamenti | Note |
 |------|------|----------|--------------|------|
 | Utente | username, hash della password, email, è amministratore, è bannato | user, admin, amministratore | possiede Elementi | |
-
-## Elementi
-
-| Nome | Dati | Sinonimi | Collegamenti | Note |
-|------|------|----------|--------------|------|
 | Elemento | stato, provenienza | | di una copia di un Libro / Film / Videogioco, posseduto da un Utente | |
-
-## Recensioni
-
-| Nome | Dati | Sinonimi | Collegamenti | Note |
-|------|------|----------|--------------|------|
 | Recensione | valutazione (0-100), commento, data, è nascosto | valutazione, commento, post | riguardante un Elemento | |
 
 ## Libri
