@@ -64,6 +64,8 @@ Si è scelto di usare l'ID interno come chiave delle entità Narratore, Autore e
 > 
 > I film saranno identificati dal loro [codice EIDR](https://ui.eidr.org/search), e per ciascuno di essi verrà calcolata la valutazione media dalle recensioni, che sarà visualizzata sulla pagina assieme a un campione di recensioni.
 
+<!--TODO-->
+
 ![](img/3-4-relazioni/film.png)
 
 ## Videogiochi
@@ -71,5 +73,7 @@ Si è scelto di usare l'ID interno come chiave delle entità Narratore, Autore e
 > Ogni videogioco avrà una sua pagina in cui sarà presente il titolo, lo sviluppatore, il publisher, una breve descrizione del gioco, l'elenco di tutte le piattaforme in cui esso è disponibile e, come per libri e film, un elenco di altri giochi correlati.
 > 
 > Per ogni piattaforma sarà disponibile una sottopagina, che conterrà la [box art](https://vgboxart.com/) di quella versione, il nome dello studio che ha effettuato il [porting](https://en.wikipedia.org/wiki/Porting#Porting_of_video_games) ed eventualmente il titolo [se diverso da quello principale](https://it.wikipedia.org/wiki/Payday_2#Crimewave_Edition). 
+
+<!--TODO-->
 
 ![](img/3-4-relazioni/giochi.png)
