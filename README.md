@@ -20,20 +20,4 @@ The specification for the project is available [in the `spec.pdf` file](/spec.pd
     1. [Schema scheletro iniziale](3-1-schema-scheletro.md)
     2. [Classificazione delle gerarchie](3-2-gerarchie.md)
     3. [Identificazione delle autoassociazioni](3-3-autoassociazioni.md)
-    4. [Classificazione delle relazioni](3-4-relazioni.md)
-    5. [Schema scheletro finale](3-5-schema-finale.md)
-
-## Compiling
-
-### Requirements
-
-- [Pandoc](https://pandoc.org/)
-- [MiKTeX](https://miktex.org/)
-
-### Instructions
-
-To create PDF files from the Markdown sources in this project, you can run the Makefile with the `make` command, or compile them manually with the following command:
-
-```bash
-pandoc -o filename.pdf filename.md
-```
+    4. [Relazioni e attributi](3-4-relazioni.md)

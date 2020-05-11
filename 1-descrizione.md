@@ -70,8 +70,13 @@ Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
     - Perso / Venduto / Restituito / Non più posseduto
     - Altro
     
-Un utente è in grado di creare una nuova pagina di un determinato elemento (se, ad esempio, ha letto un libro non ancora registrato nel database). Per fare ciò dovrà inserire obbligatoriamente il tipo di elemento, il suo dato chiave e il titolo dell'opera, mentre gli altri campi sono facoltativi: possono essere inseriti per completezza, oppure lasciati vuoti. Un utente può inoltre modificare una pagina già esistente al fine di aggiungervi informazioni o correggere errori.
-Un amministratore è in grado di eliminare le pagine, in caso esse rappresentino elementi non realmente esistenti.
+Un utente potrà creare un nuovo oggetto (edizione di libro, film...) di cui aggiungere poi un elemento nella sua libreria.
+ 
+Per farlo dovrà selezionarne il tipo e inserirne la chiave (ISBN, EIDR...) e il titolo; tutti gli altri campi saranno facoltativi: possono essere compilati per completezza, oppure lasciati vuoti.
+ 
+Un utente può inoltre modificare una pagina già esistente al fine di aggiungervi informazioni o correggere errori.
+
+Un amministratore è in grado di eliminare le pagine, in caso esse rappresentino oggetti non realmente esistenti.
 
 ## Recensioni
 
@@ -83,9 +88,7 @@ La media delle valutazioni delle recensioni relativa a un dato libro / film / se
 
 Gli utenti potranno decidere in qualsiasi momento di eliminare una loro recensione.
 
-Gli amministratori, oltre a poter decidere di eliminare recensioni, potranno marcarle come _nascoste_ nel caso le considerino inappropriate o non inerenti.
-
-Le recensioni nascoste potranno apparire nel sito, ma avranno un aspetto diverso e il commento all'interno non sarà visibile a meno che l'utente non clicchi un tasto.
+Gli amministratori potranno eliminare le recensioni nel caso queste violino i termini di servizio del sito web.
 
 ## Libri ed edizioni
 
