@@ -23,3 +23,6 @@ Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.p
 4. **Progettazione logica**
     1. [Eliminazione delle gerarchie](4-1-eliminazione-gerarchie.md)
     2. [Eliminazione delle chiavi esterne](4-2-eliminazione-chiavi-esterne.md)
+    <!--La selezione delle chiavi primarie la abbiamo già fatta in 3-4, la dobbiamo spostare qui?-->
+    3. [Trasformazione degli attributi composti](4-3-trasformazione-degli-attributi-composti.md)
+    
