@@ -1,18 +1,16 @@
 # ![Alexandria](img/0-README/alexandria.png)
 
-A database for an hypotetical website for users to organize and share their media library.
+Un database per un ipotetico sito web di gestione libreria multimediale
 
-Made as a collaboration between [@Steffo99](https://github.com/Steffo99/) and [@Cookie-CHR](https://github.com/Cookie-CHR) for the [Basi di Dati](http://personale.unimore.it/rubrica/contenutiad/rmartoglia/2019/58030/N0/N0/9999) exam at [Unimore](https://www.unimore.it/).
+Realizzato in collaborazione tra [@Steffo99](https://github.com/Steffo99/) e [@Cookie-CHR](https://github.com/Cookie-CHR) per l'esame di [Basi di Dati](http://personale.unimore.it/rubrica/contenutiad/rmartoglia/2019/58030/N0/N0/9999) dell'[Unimore](https://www.unimore.it/).
 
-> This project is still a work in progress!
+> Questo progetto non è ancora terminato. Molte cose possono ancora variare!
 
-> Parts of this project may be in Italian, as the Basi di Dati course is in Italian.
+## Specifiche
 
-## Specification
+Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.pdf).
 
-The specification for the project is available [in the `spec.pdf` file](/spec.pdf).
-
-## Report structure
+## Struttura della relazione
 
 1. **[Descrizione](1-descrizione.md)**
 2. **[Glossario](2-glossario.md)**
@@ -21,3 +19,6 @@ The specification for the project is available [in the `spec.pdf` file](/spec.pd
     2. [Classificazione delle gerarchie](3-2-gerarchie.md)
     3. [Identificazione delle autoassociazioni](3-3-autoassociazioni.md)
     4. [Relazioni e attributi](3-4-relazioni.md)
+    5. [Schema scheletro finale](3-5-schema-finale.md)
+4. **Progettazione logica**
+    1. [Eliminazione delle gerarchie](4-1-eliminazione-gerarchie.md)
