@@ -22,3 +22,4 @@ Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.p
     5. [Schema scheletro finale](3-5-schema-finale.md)
 4. **Progettazione logica**
     1. [Eliminazione delle gerarchie](4-1-eliminazione-gerarchie.md)
+    2. [Eliminazione delle chiavi esterne](4-2-eliminazione-chiavi-esterne.md)
