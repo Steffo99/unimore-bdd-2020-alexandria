@@ -1,6 +1,12 @@
+_____
+*Chiara*
+
 ### Titolo
 
 Buongiorno a tutti, noi siamo Chiara Calzolari e Stefano Pigozzi e in questo video presenteremo Alexandria, il nostro progetto per la classe di Basi di Dati.
+
+_____
+*Steffo*
 
 ### Perchè Alexandria
 
@@ -11,6 +17,8 @@ se il nome è univoco, risulterà molto più facile da trovare nelle ricerche.
 
 Cercavamo quindi un nome chiaro e indicativo, e perciò si è pensato di dargli il nome di Alexandria, come il nome della città in cui si trovava la più grande biblioteca dell'antichità.
 
+_____
+*Chiara*
 ### Schema Scheletro - pagina principale
 
 Il sito sarà suddiviso in sezioni, ciascuna riguardante un media diverso:
@@ -21,8 +29,6 @@ Libri e audiolibri, Film o Videogiochi. Anche lo schema scheletro del progetto, 
 Questa è la prima sezione, in cui descriviamo il fatto che gli utenti potranno aggiungere _elementi_ alla loro raccolta multimediale, e recensirli.
 
 Un elemento rappresenta una copia di un libro, di un film o di un videogioco posseduta da un utente. In questa sezione elementi differenti verranno trattati allo stesso modo, la differenziazione avrà luogo nelle altre sezioni.
- 
- Come vedete, fra Elemento e Recensioni vi è un identificatore esterno, ne parleremo più approfonditamente in seguito.
 
 ### Schema Scheletro - pagina principale (mentre switchiamo verso libro)
 
@@ -49,6 +55,9 @@ Arriviamo infine all'ultima sezione, la sezione Videogiochi.
 Ogni videogioco avrà una sua pagina in cui sarà presente il titolo, lo sviluppatore, il publisher, una breve descrizione del gioco, l'elenco di tutte le piattaforme in cui esso è disponibile e, come per libri e film, un elenco di altri giochi correlati.
 
 Per ogni piattaforma sarà disponibile una sottopagina, che conterrà la box art di quella versione, il nome dello studio che ha effettuato il porting, ed eventualmente il titolo, se diverso da quello principale. 
+
+_____
+*Steffo*
 
 ### Spazio idee
 
@@ -100,9 +109,12 @@ La descrizione prevede che le edizioni dei libri e degli audiolibri abbiano attr
 
 Si viene a creare così una gerarchia totale (un'Edizione è o libro o audiolibro) ed esclusiva (una edizione non può essere sia libro sia audiolibro)
 
+_____
+*Chiara*
+
 ### dato derivato
 
-In `alexandria` non sono presenti molti dati quantitativi: la maggior parte delle proprietà sono infatti qualitative, e come tali descritte da stringhe. Un dato derivato aggiungibile, però, è il numero di libri, film o videogame presenti nella libreria multimediale di un utente.
+In `alexandria` non sono presenti molti dati quantitativi. Un dato derivato aggiungibile, però, è il numero di libri, film o videogame presenti nella libreria multimediale di un utente.
 
 Per sapere se conviene mantenere questo dato derivato, effettuiamo un'analisi dei costi:
 
@@ -115,11 +127,6 @@ Valuteremo il costo di due operazioni:
 - Operazione 2: Visualizzazione dei dati di un utente, compreso il numero di libri/film/videogame presenti nella sua libreria multimediale
 
 Le tabelle dei volumi sono state create in base a statistiche trovate ricercando online: Ogni anno in media una persona legge 12 libri, guarda 60 film e compra 24 videogame, per un totale di  96 elementi per ogni utente, circa. Immaginandoci 100 utenti, avremo quindi 9600 elementi:
-
-| Concetto | Tipo | Volume |
-|----------|:----:|-------:|
-| Utente   |   E  | 100    |
-| Elemento |   E  | 9600   |
 
 La tabella degli accessi non sarà ricavata: i dati verranno analizzati in funzione di quest'ultima come conclusione.
 
@@ -142,19 +149,11 @@ Operazione 2: Leggo il dato dalla tabella Utente
 
 Operazione 2: Passando per l'associazione Possiede, calcolo la quantità di elementi del tipo desiderato. Poniamo che, per calcolare la quantità di elementi che soddisfano una condizione, sia necessario e sufficiente leggerli tutti.
 
-Ogni utente possiede in media N elementi, quindi occorreranno un numero 2*N di operazioni read (N per l'associazione e N per l'entità). N, ossia la cardinalità di passaggio, verrà calcolato in base alla tabella dei volumi fra Utente e Possiede:
+Ogni utente possiede in media N elementi, quindi occorreranno un numero 2*N di operazioni read. Occorre quindi calcolare la cardinalità di passaggio fra Utente e Possiede:
 
-Card(Utente -> Possiede) = Vol(Possiede) / Vol(Utente)
+Card(Utente -> Possiede) = Vol(Possiede) / Vol(Utente), quindi 9600 / 100, che fa 96
 
-Vol(Utente) = 100
-
-Vol(Possiede) = Vol (Elemento) = 9600
-
-Card(Utente -> Possiede) = 9600 / 100 = 96
-
-Il costo sarà quindi
-
-96 read = 96 per operazione
+Il costo sarà quindi 96 read = 96 per operazione
 
 ### Risultato finale
 
@@ -166,5 +165,10 @@ CostoCon e CostoSenza, che rappresentano le equazioni dei costi con e senza il d
 
 Ponendo CostoCon < CostoSenza e facendo tutti i calcoli del caso, risulta che il rapporto fra Op1 e Op2 deve essere strettamente minore di 94/5. Ne consegue che, perché convenga tenere il dato derivato, le operazioni di inserimento di un nuovo dato devono essere al massimo 19 volte di più delle operazioni di visualizzazione. 
 
+___
+*Steffo*
+
 ### Switchando verso il titolo
 Bene, questo è tutto, grazie perla vostra attenzione, arrivederci.
+
+___
