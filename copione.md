@@ -70,22 +70,21 @@ In Alexandria, le autoassociazioni vengono usate per rappresentare correlazioni 
 
 Esempi di correlazioni possono essere i sequel, i prequel, oppure opere ambientate nello stesso universo, come ad esempio, L'Impero Colpisce Ancora, che sarà correlato con Una Nuova Speranza e Il Ritorno dello Jedi.
 
-### chiavi primarie esterne
+### Identificatori esterni
 
-In Alexandria, sono stati aggiunti due identificatori esterni
+In quanto agli identificatori esterni, in Alexandria ne abbiamo due casi.
 
-### chiavi primarie esterne - recensione
+### Identificatori esterni - recensione
 
-In `alexandria`, ogni utente potrà pubblicare una recensione riguardante un qualsiasi elemento della sua libreria, con un testo e una valutazione da 0 a 100. Le recensioni di ogni utente saranno poi visualizzate nella pagina dell'elemento che esse riguardano.
+Il primo sono le recensioni pubblicate dagli utenti relative a un elemento, che sono identificate dall'ID dell'elemento a cui si riferiscono.
 
-Si è pensato sarebbe stato appropriato permettere alle recensioni di essere associate agli elementi della libreria di ogni utente. Si è quindi creata l'identificazione esterna che vedete in figura, ed è stata assegnata come chiave dell'entità `Recensione` l'ID dell'`Elemento` che riguarda.
+### Identificatori esterni - localizzazione
 
-### Chiavi primarie esterne - localizzazione
+Il secondo, invece, sono i film che hanno titoli diversi per ogni lingua.
 
-Alexandria permette di specificare i titoli in lingue straniere di libri, film e giochi. 
+Mentre nei libri e nei giochi gestiamo questa possibilità attraverso le entità edizione, non possiamo fare lo stesso nei film, che non ne sono dotati.
 
-Mentre libri e giochi gestiscono questa funzionalità attraverso le entità Edizione, per i film che non sono dotati di questo meccanismo abbiamo dovuto prendere una strada diversa.
-Abbiamo quindi creato un'entità Localizzazione  che usa come identificatore il codice EIDR del film e un codice di due lettere che identifica la lingua, ad esempio ti per l'italiano e en per l'inglese.
+Abbiamo quindi creato l'entità Localizzazione: essa usa un identificatore composto dal codice EIDR del film e dal codice ISO della lingua (dove, ad esempio, l'italiano corrisponde a it).
 
 ### gerarchie
 Nel progetto sono state inserite due gerarchie IsA:
