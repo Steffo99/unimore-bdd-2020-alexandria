@@ -10,12 +10,11 @@ _____
 
 ### Perchè Alexandria
 
-Perché Il progetto si chiama proprio Alexandria? Beh, il nostro progetto consiste nella base di dati di un sito web che permetta a più utenti di creare e condividere la propria libreria multimediale, come è possibile fare su altri siti web, quali aNobii,MyAnimeList e The Backloggery.
+Volevamo realizzare un sito web che permettesse agli utenti di creare e condividere la loro libreria multimediale, composta dai libri che hanno letto, film che hanno visto e videogiochi a cui hanno giocato. 
 
-Per essere pubblicato su GitHub, un progetto ha bisogno di un nome che lo contraddistingua;
-se il nome è univoco, risulterà molto più facile da trovare nelle ricerche.
+Volevamo pubblicare il progetto su GitHub, e per farlo, avevamo bisogno di un nome da dargli che fosse facile da ricordare.
 
-Cercavamo quindi un nome chiaro e indicativo, e perciò si è pensato di dargli il nome di Alexandria, come il nome della città in cui si trovava la più grande biblioteca dell'antichità.
+Allora, dato che parte del progetto riguardava i libri, abbiamo deciso di dargli il nome di Alexandria, come il nome della città in cui si trovava la più grande biblioteca dell'antichità.
 
 _____
 *Chiara*
