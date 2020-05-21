@@ -74,7 +74,10 @@ Si è pensato sarebbe stato appropriato permettere alle recensioni di essere ass
 
 ### Chiavi primarie esterne - localizzazione
 
-Per ogni film, sono stati selezionati i titoli in altre lingue, se diversi dall'originale.  Si è pensato di associare la localizzazione al film originale, per questioni di coerenza.
+Alexandria permette di specificare i titoli in lingue straniere di libri, film e giochi. 
+
+Mentre libri e giochi gestiscono questa funzionalità attraverso le entità Edizione, per i film che non sono dotati di questo meccanismo abbiamo dovuto prendere una strada diversa.
+Abbiamo quindi creato un'entità Localizzazione  che usa come identificatore il codice EIDR del film e un codice di due lettere che identifica la lingua, ad esempio ti per l'italiano e en per l'inglese.
 
 ### gerarchie
 Nel progetto sono state inserite due gerarchie IsA:
@@ -97,7 +100,7 @@ La descrizione prevede che le edizioni dei libri e degli audiolibri abbiano attr
 
 Si viene a creare così una gerarchia totale (un'Edizione è o libro o audiolibro) ed esclusiva (una edizione non può essere sia libro sia audiolibro)
 
-# dato derivato
+### dato derivato
 
 In `alexandria` non sono presenti molti dati quantitativi: la maggior parte delle proprietà sono infatti qualitative, e come tali descritte da stringhe. Un dato derivato aggiungibile, però, è il numero di libri, film o videogame presenti nella libreria multimediale di un utente.
 
@@ -162,3 +165,6 @@ Al momento abbiamo queste due equazioni che rappresentano i costi totali:
 CostoCon e CostoSenza, che rappresentano le equazioni dei costi con e senza il dato derivato, in funzione della frequenza di esecuzione delle due operazioni principali.
 
 Ponendo CostoCon < CostoSenza e facendo tutti i calcoli del caso, risulta che il rapporto fra Op1 e Op2 deve essere strettamente minore di 94/5. Ne consegue che, perché convenga tenere il dato derivato, le operazioni di inserimento di un nuovo dato devono essere al massimo 19 volte di più delle operazioni di visualizzazione. 
+
+### Switchando verso il titolo
+Bene, questo è tutto, grazie perla vostra attenzione, arrivederci.
