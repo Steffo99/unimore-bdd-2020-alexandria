@@ -87,25 +87,24 @@ Mentre nei libri e nei giochi gestiamo questa possibilità attraverso le entità
 Abbiamo quindi creato l'entità Localizzazione: essa usa un identificatore composto dal codice EIDR del film e dal codice ISO della lingua (dove, ad esempio, l'italiano corrisponde a it).
 
 ### gerarchie
-Nel progetto sono state inserite due gerarchie IsA:
+
+In quanto alle gerarchie, invece, ne abbiamo due.
 
 ### gerarchie - elemento
 
-Il tipo di dato alla base di alexandria è l'Elemento.
+La prima sta alla base dell'intero sistema di Alexandria.
 
-Un Elemento rappresenta una aggiunta da parte di un utente alla propria libreria di un libro, film o videogioco.
+Essa rappresenta una specializzazione di ogni elemento esclusivamente in un tipo.
 
-Nella descrizione si specifica che tutti gli Elementi devono avere uno stato e una provenienza specifici al tipo di Elemento; è quindi necessaria la distinzione dei vari tipi di Elemento e creando così una gerarchia esclusiva (un Elemento non può essere sia un libro sia un film allo stesso tempo).
-
-Si è deciso di rendere non totale la gerarchia in modo da permettere l'introduzione di nuovi tipi di Elementi in futuro.
+Utilizzando la gerarchia, possiamo avere attributi e relazioni generalizzati per ogni elemento, ma possiamo anche avere specializzazioni necessarie ad esempio a collegare ogni elemento al suo corrispettivo libro film o gioco. 
 
 ### gerarchie - edizione
 
-La seconda gerarchia inserita riguarda invece le diverse edizioni di un libro: pur se relative allo stesso libro, le edizioni possono essere sia edizioni caracee (o ebook) sia edizioni audio
- 
-La descrizione prevede che le edizioni dei libri e degli audiolibri abbiano attributi diversi: i libri hanno il numero di pagine e l'immagine della loro copertina, mentre gli audiolibri hanno la durata e la cover art ad essi associata;sono invece accomunate da tutte le altre relazioni, ad esempio l'essere relative ad uno stesso lbro. 
+La seconda gerarchia invece riguarda la distinzione tra libri e audiolibri.
 
-Si viene a creare così una gerarchia totale (un'Edizione è o libro o audiolibro) ed esclusiva (una edizione non può essere sia libro sia audiolibro)
+Entrambi, infatti, hanno relazioni in comune, ma anche attributi come "durata" o relazioni come "narrato da" che riguardano uno ma non l'altro.
+
+Si viene a creare così una gerarchia totale ed esclusiva.
 
 _____
 *Chiara*
