@@ -18,42 +18,27 @@ Allora, dato che parte del progetto riguardava i libri, abbiamo deciso di dargli
 
 _____
 *Chiara*
+
 ### Schema Scheletro - pagina principale
 
-Il sito sarà suddiviso in sezioni, ciascuna riguardante un media diverso:
-Libri e audiolibri, Film o Videogiochi. Anche lo schema scheletro del progetto, quindi, è diviso in sezioni secondo questo criterio.
+Lo schema scheletro del progetto sarà suddiviso in sezioni, ciascuna riguardante un media diverso: Libri e audiolibri, Film o Videogiochi.
 
 ### Schema Scheletro - generico
 
-Questa è la prima sezione, in cui descriviamo il fatto che gli utenti potranno aggiungere _elementi_ alla loro raccolta multimediale, e recensirli.
-
-Un elemento rappresenta una copia di un libro, di un film o di un videogioco posseduta da un utente. In questa sezione elementi differenti verranno trattati allo stesso modo, la differenziazione avrà luogo nelle altre sezioni.
-
-### Schema Scheletro - pagina principale (mentre switchiamo verso libro)
-
-A questo punto, l'entità Elemento si divide in tre entità figlie: Elemento(libro), Elemento(film) e Elemento(gioco).
+Questa è la sezione principale, in cui descriviamo il fatto che gli utenti potranno aggiungere elementi alla loro raccolta multimediale, e recensirli. A questo punto, l'entità Elemento si divide in tre entità figlie: libro, film e videogioco.
 
 ### Schema Scheletro - libro
 
-Questa è la sezione in cui ci occupiamo dei libri, e eventualmente degli audiolibri.
-
-Ogni libro avrà una sua pagina in cui sarà presente il titolo originale, gli autori, i generi, un breve riassunto della trama, l'elenco di tutte le sue edizioni, e opzionalmente una lista di opere correlate, come i sequel, prequel, libri ambientati nello stesso universo, etc.
-
-Anche le diverse edizioni di uno stesso libro avranno una loro pagina, identificata dal loro codice ISBN. In questa pagina saranno presenti ulteriori informazioni, quali il suo titolo, la copertina, la casa editrice e il numero di pagine (o la durata in minuti, se parliamo di audiolibri). Nelle edizioni audio verrà inoltre indicata la voce narrante.
+Questa è la sezione in cui ci occupiamo di libri e audiolibri.
+Per ogni libro vengono raccolte alcune informazioni salienti, come gli autori, i generi e la trama. Invece, altre info come il numero di pagine sono definite per singola edizione.
 
 ### Schema Scheletro - Film
 
-In questa sezione si gestiscono invece i film, e infatti vengono raccolte informazioni quali il titolo originale, i titoli nelle varie lingue, una sinossi della trama, la durata, la casa produttrice, il cast (con annesso il suo ruolo, come potete vedere in questa ternaria), e, come per i libri, una lista opzionale di pellicole correlate.
-
-I film saranno identificati dal loro codice EIDR.
+In questa sezione si gestiscono invece i film. Vengono raccolti il titolo, il codice EIDR e altre informazioni classiche, ma una cosa degna di nota è questa ternaria, che elenca il cast di un film e, per ogni membro, il ruolo che ha svolto.
 
 ### Schema Scheletro - Videogiochi
 
-Arriviamo infine all'ultima sezione, la sezione Videogiochi.
-
-Ogni videogioco avrà una sua pagina in cui sarà presente il titolo, lo sviluppatore, il publisher, una breve descrizione del gioco, l'elenco di tutte le piattaforme in cui esso è disponibile e, come per libri e film, un elenco di altri giochi correlati.
-
-Per ogni piattaforma sarà disponibile una sottopagina, che conterrà la box art di quella versione, il nome dello studio che ha effettuato il porting, ed eventualmente il titolo, se diverso da quello principale. 
+Arriviamo infine all'ultima sezione, la sezione Videogiochi. Anche qui vengono raccolte informazioni sul videogioco in generale, come lo sviluppatore e il publisher, e altre informazioni vengono invece distinte per ogni piattaforma.
 
 _____
 *Steffo*
@@ -110,62 +95,24 @@ _____
 *Chiara*
 
 ### dato derivato
-
 In `alexandria` non sono presenti molti dati quantitativi. Un dato derivato aggiungibile, però, è il numero di libri, film o videogame presenti nella libreria multimediale di un utente.
 
-Per sapere se conviene mantenere questo dato derivato, effettuiamo un'analisi dei costi:
+Valuteremo il costo di due operazioni: l'Inserimento di un nuovo libro/film/videogame nella tabella, e la visualizzazione completa dei dati di un utente
 
-### dati iniziali
+La tabella dei volumi è stata creata in base a statistiche trovate su internet, mentre la tabella degli accessi non sarà ricavata.
 
-In seguito verranno calcolati i costi di mantenimento solo di uno dei tre dati derivati, perché il costo e il procedimento sono sempre gli stessi.
+Con il dato derivato, per eseguire l'operazione 1, inserisco una nuova tupla nella tabella Elemento, e poi aggiorno la tabella Utente, passando per Possiede. Occorreranno un write, un aggiornamento per Possiede e uno per Utente, quindi 3 write e 2 read. Per l'operazione 2 leggo semplicemente il dato dalla tabella Utente, quindi 1 read 
 
-Valuteremo il costo di due operazioni:
-- Operazione 1: Inserimento di un nuovo libro/film/videogame nella tabella
-- Operazione 2: Visualizzazione dei dati di un utente, compreso il numero di libri/film/videogame presenti nella sua libreria multimediale
-
-Le tabelle dei volumi sono state create in base a statistiche trovate ricercando online: Ogni anno in media una persona legge 12 libri, guarda 60 film e compra 24 videogame, per un totale di  96 elementi per ogni utente, circa. Immaginandoci 100 utenti, avremo quindi 9600 elementi:
-
-La tabella degli accessi non sarà ricavata: i dati verranno analizzati in funzione di quest'ultima come conclusione.
-
-
-### Con dato derivato:
-Operazione 1: Inserisco una nuova tupla nella tabella Elemento, e poi aggiorno l'apposito attributo nella tabella Utente, passando per l'associazione Possiede.
-
-Ogni elemento è posseduto da un unico utente, quindi l'associazione in questo caso è 1 a 1. Ne segue che occorreranno un aggiornamento per Possiede e uno per Utente, quindi due aggiornamenti in tutto.
-
-1 write + (2 read + 2 write) = 7 per operazione
-
-Operazione 2: Leggo il dato dalla tabella Utente
-
-1 read = 1
-
-### Senza dato derivato:
-*Operazione 1*: Inserisco una nuova tupla nella tabella elemento, senza aggiornare altro
-
-1 write = 2 per operazione
-
-Operazione 2: Passando per l'associazione Possiede, calcolo la quantità di elementi del tipo desiderato. Poniamo che, per calcolare la quantità di elementi che soddisfano una condizione, sia necessario e sufficiente leggerli tutti.
-
-Ogni utente possiede in media N elementi, quindi occorreranno un numero 2*N di operazioni read. Occorre quindi calcolare la cardinalità di passaggio fra Utente e Possiede:
-
-Card(Utente -> Possiede) = Vol(Possiede) / Vol(Utente), quindi 9600 / 100, che fa 96
-
-Il costo sarà quindi 96 read = 96 per operazione
+Senza dato derivato, per l'Operazione 1 inserisco una nuova tupla senza aggiornare altro, quindi 1 write. Per l'Operazione 2 invece, passando per Possiede, devo calcolare la quantità di elementi del tipo desiderato. Occorre calcolare la cardinalità di passaggio fra Utente e Possiede, che risulta essere 96. Il costo sarà quindi di ben 96 read.
 
 ### Risultato finale
+Abbiamo calcolato i costi singoli di ciascuna operazione, adesso calcoliamo quale rapporto devono avere perché convenga il dato derivato.
 
-Abbiamo calcolato i costi singoli di ciascuna operazione, adesso calcoliamo quale rapporto devono avere le due operazioni perché convenga il dato derivato.
-
-Al momento abbiamo queste due equazioni che rappresentano i costi totali:
-
-CostoCon e CostoSenza, che rappresentano le equazioni dei costi con e senza il dato derivato, in funzione della frequenza di esecuzione delle due operazioni principali.
-
-Ponendo CostoCon < CostoSenza e facendo tutti i calcoli del caso, risulta che il rapporto fra Op1 e Op2 deve essere strettamente minore di 94/5. Ne consegue che, perché convenga tenere il dato derivato, le operazioni di inserimento di un nuovo dato devono essere al massimo 19 volte di più delle operazioni di visualizzazione. 
-
+Confrontando i due costi in funzione delle operazioni, perché convenga tenere il dato derivato, le operazioni di inserimento devono essere al massimo 94/5 in più di quelle di visualizzazione (quindi circa 19 volte tanto).
 ___
 *Steffo*
 
 ### Switchando verso il titolo
-Bene, questo è tutto, grazie perla vostra attenzione, arrivederci.
+Bene, questo è tutto, grazie per la vostra attenzione, arrivederci.
 
 ___
