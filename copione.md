@@ -60,15 +60,15 @@ _____
 
 ### Spazio idee
 
-Qui invece sono raccolti i nostri contributi allo spazio idee
+Queste invece sono tutte le cose che abbiamo contribuito allo spazio idee.
 
 ### autoassociazioni
 
-Cominciamo dalle autoassociazioni: le avete già viste nello schema scheletro, comunque in alexandria sono presenti tre autoassociazioni che rappresentano tutte e tre lo stesso concetto: ogni libro, film o videogioco può essere associato ad altre entità del suo stesso tipo a cui è correlato.
+Partiamo dalle autoassociazioni. 
 
-Inizialmente, si è considerato di aggiungere una unica autoassociazione alla entità Elemento, ma si è poi giunti alla conclusione che questo approccio sarebbe stato sbagliato: si sarebbero dovuti associare tutti i singoli Elementi creati da ciascun Utente, creando una quantità a crescita esponenziale di correlazioni!
+In Alexandria, le autoassociazioni vengono usate per rappresentare correlazioni tra libri, film e videogiochi.
 
-La nostra soluzione è quindi stata quella che vedete in figura.
+Esempi di correlazioni possono essere i sequel, i prequel, oppure opere ambientate nello stesso universo, come ad esempio, L'Impero Colpisce Ancora, che sarà correlato con Una Nuova Speranza e Il Ritorno dello Jedi.
 
 ### chiavi primarie esterne
 
