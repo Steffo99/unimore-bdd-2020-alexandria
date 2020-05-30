@@ -1,16 +1,16 @@
 # Eliminazione delle chiavi esterne
 
-In Alexandria sono presenti solo due chiavi esterne: una nelle entità Recensione e l'altra nell'entità Localizzazione.
+In Alexandria sono presenti solo due **chiavi esterne**: una nelle entità `Recensione` e l'altra nell'entità `Localizzazione`.
 
-## Eliminazione della chiave di Recensione
+## Eliminazione della chiave di `Recensione`
 
 ![](img/4-2-eliminazione-chiavi-esterne/chiave-recensioni.png)
 
-In questo caso, si è aggiunto a Recensione l'attributo "ID elemento", che corrisponderà all'ID dell'elemento a cui si riferisce:
+In questo caso, si è aggiunto a `Recensione` l'attributo "ID elemento", che corrisponderà all'ID dell'`Elemento` a cui si riferisce:
 
 ![](img/4-2-eliminazione-chiavi-esterne/after-recensioni.png)
 
-## Eliminazione della chiave di Localizzazione
+## Eliminazione della chiave di `Localizzazione`
 
 ![](img/4-2-eliminazione-chiavi-esterne/chiave-localizzazione.png)
 

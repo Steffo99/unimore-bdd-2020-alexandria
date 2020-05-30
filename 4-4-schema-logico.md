@@ -1,5 +1,7 @@
 # Creazione dello schema logico
 
+Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasformazioni previste dalla fase di progettazione logica.
+
 ## Legenda
 
 - Entità
