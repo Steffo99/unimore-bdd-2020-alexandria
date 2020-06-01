@@ -61,6 +61,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 ### Elemento (libro)
 - **ID**
 - Istanza di → [Edizione (libro)](#edizione-libro)
+- Appartiene a → [Utente](#utente)
 - _Stato_
 - _Provenienza_
 
@@ -82,6 +83,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 ### Elemento (audiolibro)
 - **ID**
 - Istanza di → [Edizione (audiolibro)](#edizione-audiolibro)
+- Appartiene a → [Utente](#utente)
 - _Stato_
 - _Provenienza_
 
@@ -134,6 +136,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - _Stato_
 - _Provenienza_
 - Istanza di → [Film](#film)
+- Appartiene a → [Utente](#utente)
 
 ### Appartenenza a genere (film)
 - **ID Genere** → [Genere](#genere-film)
@@ -199,3 +202,4 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - _Stato_
 - _Provenienza_
 - Istanza di → [Edizione (gioco)](#edizione-gioco)
+- Appartiene a → [Utente](#utente)
