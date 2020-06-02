@@ -29,6 +29,6 @@ Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.p
     5. [Schema logico](4-5-schema-logico.md)
     6. [Verifica di normalizzazione](4-6-normalizzazione.md)
 5. **Progettazione fisica**
-    
+    1. [Tecnologia database](5-1-tecnologia-database.md)
 6. **Programmazione database**
 
