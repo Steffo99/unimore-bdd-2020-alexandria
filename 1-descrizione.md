@@ -37,6 +37,7 @@ Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per 
     - Iniziato
     - Finito
     - Abbandonato
+    - Non applicabile
 - Film
     - Da vedere
     - Visto
@@ -45,6 +46,7 @@ Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per 
     - Iniziato
     - Finito
     - Completato al 100%
+    - Non applicabile
 
 Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
 
