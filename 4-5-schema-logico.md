@@ -9,7 +9,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
     - → [Chiave esterna](#legenda)
     - _Opzionale_
 
-## Schema generale
+## Generale
 
 ### Utente
 - **Username**
@@ -18,22 +18,18 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - È amministratore
 - È bannato
 
-## Schema condiviso tra libri e audiolibri
+## Condiviso tra libri e audiolibri
 
 ### Libro
 - **ID**
 - Titolo primario
 - _Sinossi_
 
-### Editore
-- **Parte ISBN**
-- Nome
+### Appartenenza a genere (libro)
+- **ID Genere** → [Genere (libro)](#genere-libro)
+- **ID Libro** → [Libro](#libro)
 
 ### Autore
-- **ID**
-- Nome
-
-### Genere (libro)
 - **ID**
 - Nome
 
@@ -41,9 +37,13 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - **ID1** → [Libro](#libro)
 - **ID2** → [Libro](#libro)
 
-### Appartenenza a genere (libro)
-- **ID Genere** → [Genere (libro)](#genere-libro)
-- **ID Libro** → [Libro](#libro)
+### Editore
+- **Parte ISBN**
+- Nome
+
+### Genere (libro)
+- **ID**
+- Nome
 
 ### Scritto da
 - **ID Autore** → [Autore](#autore)
@@ -87,21 +87,21 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - _Stato_
 - _Provenienza_
 
+### Narrata da
+- **ID Edizione** → [Edizione (audiolibro)](#edizione-audiolibro)
+- **ID Narratore** → [Narratore](#narratore)
+
+### Narratore
+- **ID**
+- Nome
+
 ### Recensione (audiolibro)
 - **ID** → [Elemento (audiolibro)](#elemento-audiolibro)
 - Commento
 - Valutazione
 - Data
 
-### Narratore
-- **ID**
-- Nome
-
-### Narrata da
-- **ID Edizione** → [Edizione (audiolibro)](#edizione-audiolibro)
-- **ID Narratore** → [Narratore](#narratore)
-
-## Schema dei film
+## Film
 
 ### Film
 - **EIDR**
@@ -109,6 +109,25 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - _Sinossi_
 - _Durata_
 - _Locanddina_
+
+### Appartenenza a genere (film)
+- **ID Genere** → [Genere](#genere-film)
+- **EIDR** → [Film](#film)
+
+### Cast
+- **ID**
+- Nome
+
+### Correlazioni (film)
+- **EIDR1** → [Film](#film)
+- **EIDR2** → [Film](#film)
+
+### Elemento (film)
+- **ID**
+- _Stato_
+- _Provenienza_
+- Istanza di → [Film](#film)
+- Appartiene a → [Utente](#utente)
 
 ### Genere (film)
 - **ID**
@@ -119,60 +138,75 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - **EIDR** → [Film](#film)
 - Titolo localizzato
 
-### Studio (film)
-- **ID**
-- Nome
+### Prodotto da
+- **ID Studio** → [Studio](#studio-film)
+- **EIDR** → [Film](#film)
 
-### Cast
-- **ID**
-- Nome
+### Recensione (film)
+- **ID** → [Recensione (film)](#elemento-film)
+- Commento
+- Valutazione
+- Data
 
 ### Ruolo
 - **ID**
 - Nome
 
-### Elemento (film)
+### Studio (film)
 - **ID**
-- _Stato_
-- _Provenienza_
-- Istanza di → [Film](#film)
-- Appartiene a → [Utente](#utente)
-
-### Appartenenza a genere (film)
-- **ID Genere** → [Genere](#genere-film)
-- **EIDR** → [Film](#film)
-
-### Prodotto da
-- **ID Studio** → [Studio](#studio-film)
-- **EIDR** → [Film](#film)
+- Nome
 
 ### Vi ha preso parte
 - **EIDR** → [Film](#film)
 - **ID Cast** → [Cast](#cast)
 - **ID Ruolo** → [Ruolo](#ruolo)
 
-### Correlazioni (film)
-- **EIDR1** → [Film](#film)
-- **EIDR2** → [Film](#film)
-
-## Schema dei giochi
+## Giochi
 
 ### Gioco
 - **ID**
 - Nome
 - _Descrizione_
 
+### Appartenenza a genere (gioco)
+- **ID Gioco** → [Gioco](#gioco)
+- **ID Genere** → [Genere (gioco)](#genere-gioco)
+
 ### Correlazioni (gioco)
 - **ID1** → [Gioco](#gioco)
 - **ID2** → [Gioco](#gioco)
+
+### Edizione (gioco)
+- **ID**
+- _Titolo alternativo_
+- Piattaforma
+- _Box art_
+- Relativa a → [Gioco](#gioco)
+
+### Elemento (gioco)
+- **ID**
+- _Stato_
+- _Provenienza_
+- Istanza di → [Edizione (gioco)](#edizione-gioco)
+- Appartiene a → [Utente](#utente)
 
 ### Genere (gioco)
 - **ID**
 - Nome
 
-### Appartenenza a genere (gioco)
+### Portato da
+- **ID Edizione** → [Edizione (gioco)](#edizione-gioco)
+- **ID Studio** → [Studio (gioco)](#studio-gioco)
+
+### Prodotto da
 - **ID Gioco** → [Gioco](#gioco)
-- **ID Genere** → [Genere (gioco)](#genere-gioco)
+- **ID Studio** → [Studio (gioco)](#studio-gioco)
+
+### Recensione (gioco)
+- **ID** → [Recensione (gioco)](#elemento-gioco)
+- Commento
+- Valutazione
+- Data
 
 ### Studio (gioco)
 - **ID**
@@ -182,24 +216,3 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - **ID Gioco** → [Gioco](#gioco)
 - **ID Studio** → [Studio (gioco)](#studio-gioco)
 
-### Prodotto da
-- **ID Gioco** → [Gioco](#gioco)
-- **ID Studio** → [Studio (gioco)](#studio-gioco)
-
-### Edizione (gioco)
-- **ID**
-- _Titolo alternativo_
-- Piattaforma
-- _Box art_
-- Relativa a → [Gioco](#gioco)
-
-### Portato da
-- **ID Edizione** → [Edizione (gioco)](#edizione-gioco)
-- **ID Studio** → [Studio (gioco)](#studio-gioco)
-
-### Elemento (gioco)
-- **ID**
-- _Stato_
-- _Provenienza_
-- Istanza di → [Edizione (gioco)](#edizione-gioco)
-- Appartiene a → [Utente](#utente)
