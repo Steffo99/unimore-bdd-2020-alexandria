@@ -35,6 +35,11 @@ Si sono valutate due diverse operazioni:
 
 ## Tabella dei costi
 
+Si sono utilizzati i seguenti costi per realizzare la tabella dei costi:
+- **read**: costo **1**
+- **write**: costo **2**
+- **update**: composta da 1 read e 1 write, costo **3**
+
 ### Senza dato derivato
 
 | Operazione | Procedura | Costi | Costo totale |
@@ -46,7 +51,7 @@ Si sono valutate due diverse operazioni:
 
 | Operazione | Procedura | Costi | Costo totale |
 |------------|-----------|-------|--------------|
-| __OP1__ | Si inserisce una nuova tupla nella tabella `Elemento` corrispondente e si aggiorna il dato derivato della tupla dell'`Utente` creatore. | 1 write + 1 write | **4** |
+| __OP1__ | Si inserisce una nuova tupla nella tabella `Elemento` corrispondente e si aggiorna il dato derivato della tupla dell'`Utente` creatore. | 1 write + 1 update | **5** |
 | __OP2__ | Si va a vedere il dato derivato nella tabella dell'`Utente` interessato. | 1 read | **1** |
 
 ## Risultato
@@ -54,6 +59,6 @@ Si sono valutate due diverse operazioni:
 | Metodo | Costo __OP1__ | Costo __OP2__ | Costo totale |
 |--------|---------------|---------------|--------------|
 | Senza dato derivato | 2 * 100 | 100 * 500 | 50200 |
-| Con dato derivato | 4 * 100 | 1 * 500 | 900 |
+| Con dato derivato | 5 * 100 | 1 * 500 | 1000 |
 
 <!--Wait, questa è una contraddizione!-->
