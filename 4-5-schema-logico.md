@@ -8,6 +8,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
     - **Chiave primaria**
     - → [Chiave esterna](#legenda)
     - _Opzionale_
+    - [♦](4-4-dati-derivati.md) Dato derivato
 
 ## Categoria generale
 
@@ -17,6 +18,10 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - _Email_
 - È amministratore
 - È bannato
+- [♦](4-4-dati-derivati.md) Elementi (libro) posseduti
+- [♦](4-4-dati-derivati.md) Elementi (audiolibro) posseduti
+- [♦](4-4-dati-derivati.md) Elementi (film) posseduti
+- [♦](4-4-dati-derivati.md) Elementi (gioco) posseduti
 
 ## Categoria condivisa tra libri e audiolibri
 
