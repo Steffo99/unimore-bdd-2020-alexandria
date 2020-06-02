@@ -24,6 +24,11 @@ Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.p
     2. [Eliminazione delle chiavi esterne](4-2-eliminazione-chiavi-esterne.md)
     <!--La selezione delle chiavi primarie la abbiamo già fatta in 3-4, la dobbiamo spostare qui?-->
     3. [Trasformazione degli attributi composti](4-3-trasformazione-degli-attributi-composti.md)
-    4. [Schema logico](4-4-schema-logico.md)
-    5. Verifica di normalizzazione
+    <!--Bisogna finire dati daerviati!-->
+    4. [Dati derivati](4-4-dati-derivati.md)
+    5. [Schema logico](4-5-schema-logico.md)
+    6. [Verifica di normalizzazione](4-6-normalizzazione.md)
+5. **Progettazione fisica**
+    
+6. **Programmazione database**
 
