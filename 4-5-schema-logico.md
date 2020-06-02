@@ -9,7 +9,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
     - → [Chiave esterna](#legenda)
     - _Opzionale_
 
-## Generale
+## Categoria generale
 
 ### Utente
 - **Username**
@@ -18,7 +18,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - È amministratore
 - È bannato
 
-## Condiviso tra libri e audiolibri
+## Categoria condivisa tra libri e audiolibri
 
 ### Libro
 - **ID**
@@ -49,7 +49,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - **ID Autore** → [Autore](#autore)
 - **ID Libro** → [Libro](#libro)
 
-## Schema dei libri
+## Categoria libri
 
 ### Edizione (libro)
 - **ISBN**
@@ -101,7 +101,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - Valutazione
 - Data
 
-## Film
+## Categoria film
 
 ### Film
 - **EIDR**
@@ -161,7 +161,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - **ID Cast** → [Cast](#cast)
 - **ID Ruolo** → [Ruolo](#ruolo)
 
-## Giochi
+## Categoria giochi
 
 ### Gioco
 - **ID**
