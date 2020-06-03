@@ -123,24 +123,6 @@ CREATE TYPE public.libro_stato AS ENUM (
 ALTER TYPE public.libro_stato OWNER TO cookie;
 
 --
--- Name: adegua_isbn(); Type: FUNCTION; Schema: public; Owner: cookie
---
-
-CREATE FUNCTION public.adegua_isbn() RETURNS trigger
-    LANGUAGE plpgsql
-    AS $$DECLARE
-	isbn VARCHAR;
-BEGIN
-	if NEW.isbn LIKE '%x' then
-		new.isbn:= CONCAT(substring(new.isbn, 1, 12),'X');
-	end if;
-	return new;
-END$$;
-
-
-ALTER FUNCTION public.adegua_isbn() OWNER TO cookie;
-
---
 -- Name: is_numeric(character varying); Type: FUNCTION; Schema: public; Owner: cookie
 --
 
@@ -164,9 +146,16 @@ ALTER FUNCTION public.is_numeric(text character varying) OWNER TO cookie;
 CREATE FUNCTION public.update_n_audiolibri() RETURNS trigger
     LANGUAGE plpgsql
     AS $$BEGIN
-	 UPDATE utente
-		SET new.audiolibro_elementi_posseduti = old.audiolibro_elementi_posseduti + 1
-		WHERE utente.id = new.audiolibro_elemento.appartiene_a;
+	IF (TG_OP = 'DELETE') THEN
+    	UPDATE utente
+			SET new.audiolibro_elementi_posseduti = old.audiolibro_elementi_posseduti - 1
+			WHERE utente.id = new.audiolibro_elemento.appartiene_a;
+    ELSIF (TG_OP = 'INSERT') THEN
+        UPDATE utente
+			SET new.audiolibro_elementi_posseduti = old.audiolibro_elementi_posseduti + 1
+			WHERE utente.id = new.audiolibro_elemento.appartiene_a;
+    END IF;
+	RETURN NEW;
 END;$$;
 
 
@@ -179,9 +168,16 @@ ALTER FUNCTION public.update_n_audiolibri() OWNER TO cookie;
 CREATE FUNCTION public.update_n_film() RETURNS trigger
     LANGUAGE plpgsql
     AS $$BEGIN
-	 UPDATE utente
-		SET new.film_elementi_posseduti = old.film_elementi_posseduti + 1
-		WHERE utente.id = new.film_elemento.appartiene_a;
+	IF (TG_OP = 'DELETE') THEN
+    	UPDATE utente
+			SET new.film_elementi_posseduti = old.film_elementi_posseduti - 1
+			WHERE utente.id = new.film_elemento.appartiene_a;
+    ELSIF (TG_OP = 'INSERT') THEN
+        UPDATE utente
+			SET new.film_elementi_posseduti = old.film_elementi_posseduti + 1
+			WHERE utente.id = new.film_elemento.appartiene_a;
+    END IF;
+	RETURN NEW;
 END;$$;
 
 
@@ -194,9 +190,16 @@ ALTER FUNCTION public.update_n_film() OWNER TO cookie;
 CREATE FUNCTION public.update_n_giochi() RETURNS trigger
     LANGUAGE plpgsql
     AS $$BEGIN
-	 UPDATE utente
-		SET new.gioco_elementi_posseduti = old.gioco_elementi_posseduti + 1
-		WHERE utente.id = new.gioco_elemento.appartiene_a;
+	IF (TG_OP = 'DELETE') THEN
+    	UPDATE utente
+			SET new.gioco_elementi_posseduti = old.gioco_elementi_posseduti - 1
+			WHERE utente.id = new.gioco_elemento.appartiene_a;
+    ELSIF (TG_OP = 'INSERT') THEN
+        UPDATE utente
+			SET new.gioco_elementi_posseduti = old.gioco_elementi_posseduti + 1
+			WHERE utente.id = new.gioco_elemento.appartiene_a;
+    END IF;
+	RETURN NEW;
 END;$$;
 
 
@@ -209,9 +212,16 @@ ALTER FUNCTION public.update_n_giochi() OWNER TO cookie;
 CREATE FUNCTION public.update_n_libri() RETURNS trigger
     LANGUAGE plpgsql
     AS $$BEGIN
-	 UPDATE utente
-		SET new.libro_elementi_posseduti = old.libro_elementi_posseduti + 1
-		WHERE utente.id = new.libro_elemento.appartiene_a;
+	IF (TG_OP = 'DELETE') THEN
+    	UPDATE utente
+			SET new.libro_elementi_posseduti = old.libro_elementi_posseduti - 1
+			WHERE utente.id = new.libro_elemento.appartiene_a;
+    ELSIF (TG_OP = 'INSERT') THEN
+        UPDATE utente
+			SET new.libro_elementi_posseduti = old.libro_elementi_posseduti + 1
+			WHERE utente.username = new.libro_elemento.appartiene_a;
+    END IF;
+	RETURN NEW;
 END;$$;
 
 
@@ -817,6 +827,7 @@ CREATE TABLE public.libro_edizione (
     pagine integer,
     copertina bytea,
     relativa_a integer,
+    CONSTRAINT libro_edizione_isbn_check CHECK ((public.is_numeric(("substring"((isbn)::text, 1, 12))::character varying) AND (public.is_numeric(("right"((isbn)::text, 1))::character varying) OR ("right"((isbn)::text, 1) ~~ '%X'::text)))),
     CONSTRAINT libro_edizione_pagine_check CHECK ((pagine >= 0))
 );
 
@@ -1188,6 +1199,9 @@ COPY public.libro_editore (parte_isbn, nome) FROM stdin;
 --
 
 COPY public.libro_edizione (isbn, titolo_edizione, pagine, copertina, relativa_a) FROM stdin;
+1234567890123	abcd	\N	\N	\N
+1111122222333	efgh	111	\N	\N
+3210987654321	bababa	\N	\N	\N
 \.
 
 
@@ -1228,6 +1242,8 @@ COPY public.libro_scritto_da (id_libro, id_autore) FROM stdin;
 --
 
 COPY public.utente (username, password, email, is_admin, is_banned, libro_elementi_posseduti, audiolibro_elementi_posseduti, film_elementi_posseduti, gioco_elementi_posseduti) FROM stdin;
+sas	\\x737573	ciao@steffo.eu	t	f	0	0	0	0
+sis	\\x737573	banana@steffo.eu	f	f	0	0	0	0
 \.
 
 
@@ -1565,14 +1581,6 @@ ALTER TABLE ONLY public.libro_editore
 
 
 --
--- Name: libro_edizione libro_edizione_isbn_check; Type: CHECK CONSTRAINT; Schema: public; Owner: cookie
---
-
-ALTER TABLE public.libro_edizione
-    ADD CONSTRAINT libro_edizione_isbn_check CHECK ((public.is_numeric(("substring"((isbn)::text, 1, 12))::character varying) AND (public.is_numeric(("right"((isbn)::text, 1))::character varying) OR ("right"((isbn)::text, 1) ~~ '%X'::text)))) NOT VALID;
-
-
---
 -- Name: libro_elemento libro_elemento_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
 --
 
@@ -1629,19 +1637,10 @@ ALTER TABLE ONLY public.utente
 
 
 --
--- Name: film_correlazioni EIDR_1; Type: FK CONSTRAINT; Schema: public; Owner: cookie
+-- Name: libro_elemento numero_libri_trigger; Type: TRIGGER; Schema: public; Owner: cookie
 --
 
-ALTER TABLE ONLY public.film_correlazioni
-    ADD CONSTRAINT "EIDR_1" FOREIGN KEY (eidr_1) REFERENCES public.film(eidr);
-
-
---
--- Name: film_correlazioni EIDR_2; Type: FK CONSTRAINT; Schema: public; Owner: cookie
---
-
-ALTER TABLE ONLY public.film_correlazioni
-    ADD CONSTRAINT "EIDR_2" FOREIGN KEY (eidr_2) REFERENCES public.film(eidr);
+CREATE TRIGGER numero_libri_trigger AFTER INSERT ON public.libro_elemento FOR EACH ROW EXECUTE PROCEDURE public.update_n_libri();
 
 
 --
@@ -1706,6 +1705,22 @@ ALTER TABLE ONLY public.film_prodotto_da
 
 ALTER TABLE ONLY public.film_vi_ha_preso_parte
     ADD CONSTRAINT eidr FOREIGN KEY (eidr) REFERENCES public.film(eidr);
+
+
+--
+-- Name: film_correlazioni eidr_1; Type: FK CONSTRAINT; Schema: public; Owner: cookie
+--
+
+ALTER TABLE ONLY public.film_correlazioni
+    ADD CONSTRAINT eidr_1 FOREIGN KEY (eidr_1) REFERENCES public.film(eidr);
+
+
+--
+-- Name: film_correlazioni eidr_2; Type: FK CONSTRAINT; Schema: public; Owner: cookie
+--
+
+ALTER TABLE ONLY public.film_correlazioni
+    ADD CONSTRAINT eidr_2 FOREIGN KEY (eidr_2) REFERENCES public.film(eidr);
 
 
 --

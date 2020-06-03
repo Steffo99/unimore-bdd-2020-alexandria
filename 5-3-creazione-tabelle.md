@@ -41,9 +41,169 @@ CREATE TABLE public.audiolibro_edizione (
     immagine bytea,
     relativa_a integer NOT NULL
 );
+
+ALTER TABLE ONLY public.audiolibro_edizione
+    ADD CONSTRAINT audiolibro_edizione_pkey PRIMARY KEY (isbn);
 ```
 
 L'immagine relativa all'audiolibro è archiviata nella base di dati come un blob binario di dati.
+
+### `audiolibro_recensione`
+
+```sql
+CREATE TABLE public.audiolibro_recensione (
+    id bigint NOT NULL,
+    commento text NOT NULL,
+    valutazione smallint NOT NULL,
+    data timestamp without time zone NOT NULL,
+    CONSTRAINT audiolibro_recensione_valutazione_check CHECK (((valutazione >= 0) AND (valutazione <= 100)))
+);
+
+ALTER TABLE ONLY public.audiolibro_recensione
+    ADD CONSTRAINT audiolibro_recensione_pkey PRIMARY KEY (id);
+```
+
+La valutazione delle recensioni deve essere obbligatoriamente tra 0 e 100: a tale scopo, è stato introdotto un _CHECK_ sulla tabella.
+
+La data di pubblicazione è rappresentata da un _timestamp_.
+
+### `film`
+
+```sql
+CREATE TABLE public.film (
+    eidr character(34) NOT NULL,
+    titolo character varying NOT NULL,
+    sinossi text,
+    locandina bytea,
+    durata integer,
+    CONSTRAINT film_durata_check CHECK ((durata >= 0))
+);
+
+ALTER TABLE ONLY public.film
+    ADD CONSTRAINT film_pkey PRIMARY KEY (eidr);
+```
+
+I film hanno un _CHECK_ che impedisce alla loro durata di essere minore di 0 minuti, nel caso essa sia definita.
+
+Il loro `eidr` è una stringa di lunghezza costante _char_, in quanto gli EIDR sono sempre lunghi 34 caratteri.
+
+Inoltre, come per gli audiolibri, la loro locandina è immagazzinata nel database come _bytea_. 
+
+### `film_correlazioni`
+
+```sql
+CREATE TABLE public.film_correlazioni (
+    eidr_1 character(34) NOT NULL,
+    eidr_2 character(34) NOT NULL
+);
+
+ALTER TABLE ONLY public.film_correlazioni
+    ADD CONSTRAINT film_correlazioni_pkey PRIMARY KEY (eidr_1, eidr_2);
+
+ALTER TABLE ONLY public.film_correlazioni
+    ADD CONSTRAINT eidr_1 FOREIGN KEY (eidr_1) REFERENCES public.film(eidr);
+
+ALTER TABLE ONLY public.film_correlazioni
+    ADD CONSTRAINT eidr_2 FOREIGN KEY (eidr_2) REFERENCES public.film(eidr);
+```
+
+L'autoassociazione delle correlazioni è stata implementata attraverso una **tabella ponte** che collega due film attraverso i loro `eidr`.
+
+`eidr_1` ed `eidr_2` sono due chiavi esterne separate, e insieme formano la **chiave primaria composta** della tabella.
+
+### `film_vi_ha_preso_parte`
+
+```sql
+CREATE TABLE public.film_vi_ha_preso_parte (
+    eidr character(34) NOT NULL,
+    id_cast integer NOT NULL,
+    id_ruolo integer NOT NULL
+);
+
+ALTER TABLE ONLY public.film_vi_ha_preso_parte
+    ADD CONSTRAINT film_vi_ha_preso_parte_pkey PRIMARY KEY (eidr, id_cast, id_ruolo);
+
+ALTER TABLE ONLY public.film_vi_ha_preso_parte
+    ADD CONSTRAINT eidr FOREIGN KEY (eidr) REFERENCES public.film(eidr);
+
+ALTER TABLE ONLY public.film_vi_ha_preso_parte
+    ADD CONSTRAINT id_cast FOREIGN KEY (id_cast) REFERENCES public.film_cast(id);
+
+ALTER TABLE ONLY public.film_vi_ha_preso_parte
+    ADD CONSTRAINT id_ruolo FOREIGN KEY (id_ruolo) REFERENCES public.film_ruolo(id);
+```
+
+L'associazione ternaria è stata realizzata con una **tabella ponte**, con una **chiave primaria composta** e tre chiavi esterne separate.
+
+### `elemento_id_seq`
+
+```sql
+CREATE SEQUENCE public.elemento_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+```
+
+Si è deciso di rendere **univoci** gli `id` di **tutti gli elementi**, qualsiasi fosse il loro tipo.
+
+Per realizzare l'unicità si è creata una unica _SEQUENCE_, che viene usata da tutte le tabelle `*_elemento`.
+
+### `gioco_stato` e `gioco_provenienza`
+
+```sql
+CREATE TYPE public.gioco_provenienza AS ENUM (
+    'GRATUITO',
+    'ACQUISTATO',
+    'IN_ABBONAMENTO',
+    'PRESO_IN_PRESTITO',
+    'NON_PIU_POSSEDUTO',
+    'ALTRO'
+);
+
+CREATE TYPE public.gioco_stato AS ENUM (
+    'DA_INIZIARE',
+    'INIZIATO',
+    'FINITO',
+    'COMPLETATO',
+    'NON_APPLICABILE'
+);
+```
+
+Gli stati e le provenienze degli elementi sono state realizzate tramite _ENUM_ contenenti tutte le possibili opzioni selezionabili dall'utente.
+
+### `gioco_elemento`
+
+```sql
+CREATE TABLE public.gioco_elemento (
+    id bigint DEFAULT nextval('public.elemento_id_seq'::regclass) NOT NULL,
+    stato public.gioco_stato,
+    provenienza public.gioco_provenienza,
+    istanza_di integer NOT NULL,
+    appartiene_a character varying NOT NULL
+);
+
+ALTER TABLE ONLY public.gioco_elemento
+    ADD CONSTRAINT gioco_elemento_pkey PRIMARY KEY (id);
+
+ALTER TABLE ONLY public.gioco_elemento
+    ADD CONSTRAINT appartiene_a FOREIGN KEY (appartiene_a) REFERENCES public.utente(username);
+
+ALTER TABLE ONLY public.gioco_elemento
+    ADD CONSTRAINT istanza_di FOREIGN KEY (istanza_di) REFERENCES public.gioco_edizione(id);
+```
+
+Le tabelle degli elementi hanno due colonne `stato` e `provenienza` di tipo `*_stato` e `*_provenienza` rispettivamente: sono gli _ENUM_ creati in precedenza, che impediscono che vengano inseriti valori non consentiti nella tabella.
+
+La colonna `id` invece ha un valore di _DEFAULT_ particolare: `nextval('public.elemento_id_seq'::regclass)`.  
+Significa che, se non viene specificato un `id` durante un _INSERT_, alla riga verrà assegnato automaticamente il valore corrente della _SEQUENCE_, e il valore della sequenza sarà aumentato, garantendo l'**unicità** degli `id` anche attraverso tabelle diverse.
+
+<!--TODO: qui dovremmo scrivere qualcosa sui trigger... quando sono finiti.-->
+
+### `libro_edizione`
+
+<!--TODO: è pronto il check dell'ISBN?-->
 
 ### `utente`
 
@@ -59,6 +219,9 @@ CREATE TABLE public.utente (
     film_elementi_posseduti integer DEFAULT 0 NOT NULL,
     gioco_elementi_posseduti integer DEFAULT 0 NOT NULL
 );
+
+ALTER TABLE ONLY public.utente
+    ADD CONSTRAINT username PRIMARY KEY (username);
 ```
 
 La password, essendo un [hash](https://it.wikipedia.org/wiki/Funzione_di_hash), è rappresentata come un dato binario (_bytea_).

@@ -30,7 +30,7 @@ Gli utenti potranno aggiungere _elementi_ alla loro raccolta multimediale.
 
 Un elemento rappresenta una copia di un libro, di un film o di un videogioco posseduta da un utente.
 
-Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per ogni tipologia:
+Ogni elemento avrà associato uno **stato** da una lista di opzioni diverse per ogni tipologia:
 
 - Libro
     - Da iniziare
