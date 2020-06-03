@@ -30,5 +30,7 @@ Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.p
     6. [Verifica di normalizzazione](4-6-normalizzazione.md)
 5. **Progettazione fisica**
     1. [Tecnologia database](5-1-tecnologia-database.md)
+    2. [Creazione database](5-2-creazione-database.md)
+    3. [Creazione tabelle](5-3-creazione-tabelle.md)
 6. **Programmazione database**
 
