@@ -8,8 +8,6 @@ Per farlo, ci si è basati sui contenuti della [descrizione](1-descrizione.md) e
 
 ## Legenda
 
-<!--TODO: Forse dovremmo rifarla scrivendo Identificatore invece che Chiave primaria?-->
-
 ![](img/3-4-relazioni/legenda.png)
 
 ## `Utenti`
@@ -89,7 +87,7 @@ Questa particolare struttura compare in molte parti dello schema relazionale: pe
 
 Dato che si è voluto rendere possibili query come "quali `Libri` ha scritto questo autore" o "quali `Libri` ha narrato questo narratore" e che inserire nel database autori o narratori a cui non appartiene nessun libro non avrebbe alcun senso, si è scelto invece di usare una cardinalità **1 a N** dall'altro lato della relazione.
 
-Infine, per l'entità connessa al lato _1 a N_ della relazione, si è deciso di usare un **ID interno** come identificatore, in modo da permettere la modifica del _Nome_ associato senza dover andare a modificare tutte le opere.
+Infine, per l'entità connessa al lato _1 a N_ della relazione, si è deciso di usare un **identificatore surrogato**, in modo da permettere la modifica del _Nome_ associato senza dover andare a modificare tutte le opere.
 
 ### `Generi`
 
@@ -97,7 +95,7 @@ Infine, per l'entità connessa al lato _1 a N_ della relazione, si è deciso di 
 
 Notiamo che la relazione che associa un `Libro` a un `Genere` è molto simile alla struttura _1NN0_, ma essa ha una cardinalità **0 a N** anche dal lato dell'entità `Genere`.
 
-Questo perchè si intende aggiungere alcuni `Generi` al database tra cui gli utenti potranno scegliere prima ancora che esistano dei libri.
+Questo perchè si intende aggiungere alcuni `Generi` al database tra cui gli utenti potranno scegliere prima ancora che esistano  dei libri.
 
 ### `Editori`
 
@@ -155,7 +153,7 @@ Come i `Libri`, anche i `Film` hanno un'autoassociazione per determinare le pell
 Simile al pattern _1NN0_, ma fondamentalmente diversa è la relazione `in altre lingue`: essa ha cardinalità _0 a N_ dal lato dei `Film`, e _1 a 1_ dal lato dell'entità `Localizzazione`; in più, l'associazione è identificatore esterno di `Localizzazione`.
 
 L'entità `Localizzazione` rappresenta il **titolo** di un `Film` tradotto in una lingua: ad esempio, _Il Padrino_ è una localizzazione in "`it`" (italiano) del `Film` _The Godfather_.  
-La sua chiave è composta dal codice ISO della lingua a cui si riferisce e dall'identificatore del `Film` a cui essa si riferisce: è dunque una **entità debole**.
+Il suo identificatore è composto dal codice ISO della lingua a cui si riferisce e dall'identificatore del `Film` a cui essa si riferisce: è dunque una **entità debole**.
 
 > Nei `Libri` e nei `Giochi` non è stato necessario creare questa entità perchè nei `Libri` lingue diverse hanno codici ISBN diversi (e quindi è possibile inserire i titoli localizzati all'interno dell'entità `Edizione`), e per i `Giochi` è molto raro avere titoli tradotti. 
 
