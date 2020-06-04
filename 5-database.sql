@@ -145,18 +145,23 @@ ALTER FUNCTION public.is_numeric(text character varying) OWNER TO cookie;
 
 CREATE FUNCTION public.update_n_audiolibri() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$BEGIN
+    AS $$
+BEGIN
 	IF (TG_OP = 'DELETE') THEN
     	UPDATE utente
-			SET new.audiolibro_elementi_posseduti = old.audiolibro_elementi_posseduti - 1
-			WHERE utente.id = new.audiolibro_elemento.appartiene_a;
+			SET audiolibro_elementi_posseduti = audiolibro_elementi_posseduti - 1
+			FROM audiolibro_elemento
+			WHERE utente.username = old.appartiene_a;
+        RETURN OLD;
     ELSIF (TG_OP = 'INSERT') THEN
         UPDATE utente
-			SET new.audiolibro_elementi_posseduti = old.audiolibro_elementi_posseduti + 1
-			WHERE utente.id = new.audiolibro_elemento.appartiene_a;
+			SET audiolibro_elementi_posseduti = audiolibro_elementi_posseduti + 1
+			FROM audiolibro_elemento
+			WHERE utente.username = new.appartiene_a;
+        RETURN new;
     END IF;
-	RETURN NEW;
-END;$$;
+END;
+$$;
 
 
 ALTER FUNCTION public.update_n_audiolibri() OWNER TO cookie;
@@ -167,18 +172,23 @@ ALTER FUNCTION public.update_n_audiolibri() OWNER TO cookie;
 
 CREATE FUNCTION public.update_n_film() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$BEGIN
+    AS $$
+BEGIN
 	IF (TG_OP = 'DELETE') THEN
     	UPDATE utente
-			SET new.film_elementi_posseduti = old.film_elementi_posseduti - 1
-			WHERE utente.id = new.film_elemento.appartiene_a;
+			SET film_elementi_posseduti = film_elementi_posseduti - 1
+			FROM film_elemento
+			WHERE utente.username = old.appartiene_a;
+    	RETURN old;
     ELSIF (TG_OP = 'INSERT') THEN
         UPDATE utente
-			SET new.film_elementi_posseduti = old.film_elementi_posseduti + 1
-			WHERE utente.id = new.film_elemento.appartiene_a;
+			SET film_elementi_posseduti = film_elementi_posseduti + 1
+			FROM film_elemento
+			WHERE utente.username = new.appartiene_a;
+        RETURN new;
     END IF;
-	RETURN NEW;
-END;$$;
+END;
+$$;
 
 
 ALTER FUNCTION public.update_n_film() OWNER TO cookie;
@@ -189,18 +199,23 @@ ALTER FUNCTION public.update_n_film() OWNER TO cookie;
 
 CREATE FUNCTION public.update_n_giochi() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$BEGIN
+    AS $$
+BEGIN
 	IF (TG_OP = 'DELETE') THEN
     	UPDATE utente
-			SET new.gioco_elementi_posseduti = old.gioco_elementi_posseduti - 1
-			WHERE utente.id = new.gioco_elemento.appartiene_a;
+			SET gioco_elementi_posseduti = gioco_elementi_posseduti - 1
+			FROM gioco_elemento
+			WHERE utente.username = old.appartiene_a;
+        RETURN old;
     ELSIF (TG_OP = 'INSERT') THEN
         UPDATE utente
-			SET new.gioco_elementi_posseduti = old.gioco_elementi_posseduti + 1
-			WHERE utente.id = new.gioco_elemento.appartiene_a;
+			SET gioco_elementi_posseduti = gioco_elementi_posseduti + 1
+			FROM gioco_elemento
+			WHERE utente.username = new.appartiene_a;
+        RETURN new;
     END IF;
-	RETURN NEW;
-END;$$;
+END;
+$$;
 
 
 ALTER FUNCTION public.update_n_giochi() OWNER TO cookie;
@@ -211,18 +226,23 @@ ALTER FUNCTION public.update_n_giochi() OWNER TO cookie;
 
 CREATE FUNCTION public.update_n_libri() RETURNS trigger
     LANGUAGE plpgsql
-    AS $$BEGIN
+    AS $$
+BEGIN
 	IF (TG_OP = 'DELETE') THEN
     	UPDATE utente
-			SET new.libro_elementi_posseduti = old.libro_elementi_posseduti - 1
-			WHERE utente.id = new.libro_elemento.appartiene_a;
+			SET libro_elementi_posseduti = libro_elementi_posseduti - 1
+			FROM libro_elemento
+			WHERE utente.username = old.appartiene_a;
+        RETURN old;
     ELSIF (TG_OP = 'INSERT') THEN
         UPDATE utente
-			SET new.libro_elementi_posseduti = old.libro_elementi_posseduti + 1
-			WHERE utente.username = new.libro_elemento.appartiene_a;
+			SET libro_elementi_posseduti = libro_elementi_posseduti + 1
+			FROM libro_elemento
+			WHERE utente.username = new.appartiene_a;
+        RETURN new;
     END IF;
-	RETURN NEW;
-END;$$;
+END;
+$$;
 
 
 ALTER FUNCTION public.update_n_libri() OWNER TO cookie;
@@ -1242,8 +1262,8 @@ COPY public.libro_scritto_da (id_libro, id_autore) FROM stdin;
 --
 
 COPY public.utente (username, password, email, is_admin, is_banned, libro_elementi_posseduti, audiolibro_elementi_posseduti, film_elementi_posseduti, gioco_elementi_posseduti) FROM stdin;
-sas	\\x737573	ciao@steffo.eu	t	f	0	0	0	0
-sis	\\x737573	banana@steffo.eu	f	f	0	0	0	0
+sas	\\x737573	ciao@steffo.eu	t	f	-4	0	0	0
+sis	\\x737573	banana@steffo.eu	f	f	-2	0	0	0
 \.
 
 
@@ -1325,14 +1345,6 @@ SELECT pg_catalog.setval('public.libro_id_seq', 1, false);
 
 
 --
--- Name: libro_edizione Edizione(libro)_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
---
-
-ALTER TABLE ONLY public.libro_edizione
-    ADD CONSTRAINT "Edizione(libro)_pkey" PRIMARY KEY (isbn);
-
-
---
 -- Name: audiolibro_edizione audiolibro_edizione_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
 --
 
@@ -1370,14 +1382,6 @@ ALTER TABLE ONLY public.audiolibro_narratore
 
 ALTER TABLE ONLY public.audiolibro_recensione
     ADD CONSTRAINT audiolibro_recensione_pkey PRIMARY KEY (id);
-
-
---
--- Name: libro_correlazioni correlazioni_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
---
-
-ALTER TABLE ONLY public.libro_correlazioni
-    ADD CONSTRAINT correlazioni_pkey PRIMARY KEY (id_1, id_2);
 
 
 --
@@ -1573,11 +1577,27 @@ ALTER TABLE ONLY public.libro_autore
 
 
 --
+-- Name: libro_correlazioni libro_correlazioni_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
+--
+
+ALTER TABLE ONLY public.libro_correlazioni
+    ADD CONSTRAINT libro_correlazioni_pkey PRIMARY KEY (id_1, id_2);
+
+
+--
 -- Name: libro_editore libro_editore_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
 --
 
 ALTER TABLE ONLY public.libro_editore
     ADD CONSTRAINT libro_editore_pkey PRIMARY KEY (parte_isbn);
+
+
+--
+-- Name: libro_edizione libro_edizione_pkey; Type: CONSTRAINT; Schema: public; Owner: cookie
+--
+
+ALTER TABLE ONLY public.libro_edizione
+    ADD CONSTRAINT libro_edizione_pkey PRIMARY KEY (isbn);
 
 
 --
@@ -1637,10 +1657,31 @@ ALTER TABLE ONLY public.utente
 
 
 --
+-- Name: audiolibro_elemento numero_audiolibri_trigger; Type: TRIGGER; Schema: public; Owner: cookie
+--
+
+CREATE TRIGGER numero_audiolibri_trigger BEFORE INSERT OR DELETE ON public.audiolibro_elemento FOR EACH ROW EXECUTE PROCEDURE public.update_n_audiolibri();
+
+
+--
+-- Name: film_elemento numero_film_trigger; Type: TRIGGER; Schema: public; Owner: cookie
+--
+
+CREATE TRIGGER numero_film_trigger BEFORE INSERT OR DELETE ON public.film_elemento FOR EACH ROW EXECUTE PROCEDURE public.update_n_film();
+
+
+--
+-- Name: gioco_elemento numero_giochi_trigger; Type: TRIGGER; Schema: public; Owner: cookie
+--
+
+CREATE TRIGGER numero_giochi_trigger BEFORE INSERT OR DELETE ON public.gioco_elemento FOR EACH ROW EXECUTE PROCEDURE public.update_n_giochi();
+
+
+--
 -- Name: libro_elemento numero_libri_trigger; Type: TRIGGER; Schema: public; Owner: cookie
 --
 
-CREATE TRIGGER numero_libri_trigger AFTER INSERT ON public.libro_elemento FOR EACH ROW EXECUTE PROCEDURE public.update_n_libri();
+CREATE TRIGGER numero_libri_trigger BEFORE INSERT OR DELETE ON public.libro_elemento FOR EACH ROW EXECUTE PROCEDURE public.update_n_libri();
 
 
 --

@@ -192,6 +192,31 @@ ALTER TABLE ONLY public.gioco_elemento
 
 ALTER TABLE ONLY public.gioco_elemento
     ADD CONSTRAINT istanza_di FOREIGN KEY (istanza_di) REFERENCES public.gioco_edizione(id);
+
+CREATE FUNCTION public.update_n_giochi() RETURNS trigger
+    LANGUAGE plpgsql
+    AS $$
+    BEGIN
+        IF (TG_OP = 'DELETE') THEN
+            UPDATE utente
+                SET gioco_elementi_posseduti = gioco_elementi_posseduti - 1
+                FROM gioco_elemento
+                WHERE utente.username = old.appartiene_a;
+            RETURN old;
+        ELSIF (TG_OP = 'INSERT') THEN
+            UPDATE utente
+                SET gioco_elementi_posseduti = gioco_elementi_posseduti + 1
+                FROM gioco_elemento
+                WHERE utente.username = new.appartiene_a;
+            RETURN new;
+        END IF;
+    END;
+    $$;
+
+CREATE TRIGGER numero_giochi_trigger 
+    BEFORE INSERT OR DELETE 
+    ON public.gioco_elemento 
+    FOR EACH ROW EXECUTE PROCEDURE public.update_n_giochi();
 ```
 
 Le tabelle degli elementi hanno due colonne `stato` e `provenienza` di tipo `*_stato` e `*_provenienza` rispettivamente: sono gli _ENUM_ creati in precedenza, che impediscono che vengano inseriti valori non consentiti nella tabella.
@@ -199,11 +224,43 @@ Le tabelle degli elementi hanno due colonne `stato` e `provenienza` di tipo `*_s
 La colonna `id` invece ha un valore di _DEFAULT_ particolare: `nextval('public.elemento_id_seq'::regclass)`.  
 Significa che, se non viene specificato un `id` durante un _INSERT_, alla riga verrà assegnato automaticamente il valore corrente della _SEQUENCE_, e il valore della sequenza sarà aumentato, garantendo l'**unicità** degli `id` anche attraverso tabelle diverse.
 
-<!--TODO: qui dovremmo scrivere qualcosa sui trigger... quando sono finiti.-->
+Inoltre, nella tabella è presente un _TRIGGER_, che incrementa o decrementa il conteggio dei giochi di un utente quando egli rispettivamente crea o elimina nuovi elementi.
 
 ### `libro_edizione`
 
-<!--TODO: è pronto il check dell'ISBN?-->
+```sql
+create function is_numeric(text character varying) returns boolean
+    strict
+    language plpgsql
+as
+$$
+DECLARE x NUMERIC;
+BEGIN
+    x = $1::NUMERIC;
+    RETURN TRUE;
+EXCEPTION WHEN others THEN
+    RETURN FALSE;
+END;
+$$;
+
+CREATE TABLE public.libro_edizione (
+    isbn character(13) NOT NULL,
+    titolo_edizione character varying NOT NULL,
+    pagine integer,
+    copertina bytea,
+    relativa_a integer NOT NULL,
+    CONSTRAINT libro_edizione_isbn_check CHECK ((public.is_numeric(("substring"((isbn)::text, 1, 12))::character varying) AND (public.is_numeric(("right"((isbn)::text, 1))::character varying) OR ("right"((isbn)::text, 1) ~~ '%X'::text)))),
+    CONSTRAINT libro_edizione_pagine_check CHECK ((pagine >= 0))
+);
+
+ALTER TABLE ONLY public.libro_edizione
+    ADD CONSTRAINT libro_edizione_pkey PRIMARY KEY (isbn);
+
+ALTER TABLE ONLY public.libro_edizione
+    ADD CONSTRAINT relativa_a FOREIGN KEY (relativa_a) REFERENCES public.libro(id);
+```
+
+La tabella delle edizioni di un libro include due _CHECK_: uno che controlla che le pagine, se specificate, siano un numero positivo, e un'altro che controlla che gli ISBN siano in un formato valido, assicurandosi che tutti i caratteri siano numerici e permettendo anche una `X` sull'ultimo.
 
 ### `utente`
 
