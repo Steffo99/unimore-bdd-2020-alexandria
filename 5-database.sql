@@ -224,7 +224,8 @@ CREATE TABLE public.audiolibro_edizione (
     titolo character varying NOT NULL,
     durata interval,
     immagine bytea,
-    relativa_a integer NOT NULL
+    relativa_a integer NOT NULL,
+    CONSTRAINT durata_check CHECK ((date_part('epoch'::text, durata) >= (0)::double precision))
 );
 
 
@@ -307,8 +308,8 @@ CREATE TABLE public.film (
     titolo character varying NOT NULL,
     sinossi text,
     locandina bytea,
-    durata integer,
-    CONSTRAINT film_durata_check CHECK ((durata >= 0))
+    durata interval,
+    CONSTRAINT durata_check CHECK ((date_part('epoch'::text, durata) >= (0)::double precision))
 );
 
 
@@ -894,13 +895,13 @@ COPY public.audiolibro_recensione (id, commento, valutazione, data) FROM stdin;
 --
 
 COPY public.film (eidr, titolo, sinossi, locandina, durata) FROM stdin;
-10.5240/29E6-2D4B-B704-2B69-441F-8	Titanic	\N	\N	195
+10.5240/29E6-2D4B-B704-2B69-441F-8	Titanic	\N	\N	03:15:00
 10.5240/E030-107B-C08A-BF93-AC79-B	The Lord of the Rings: The Fellowship of the Ring	\N	\N	\N
 10.5240/598E-D2AE-1B7D-67EB-3F75-6	The Lord of the Rings: The Two Towers	\N	\N	\N
 10.5240/B07E-E305-8057-CD37-0887-E	The Lord of the Rings: The Return of the King	\N	\N	\N
-10.5240/0EF3-54F9-2642-0B49-6829-R	Inception	\N	\N	148
+10.5240/0EF3-54F9-2642-0B49-6829-R	Inception	\N	\N	02:28:00
 10.5240/3CB5-4D3B-BC77-8A4E-78D4-9	La vita è bella	\N	\N	\N
-10.5240/E73C-4D4C-4F90-781B-B62F-K	Shining	\N	\N	146
+10.5240/E73C-4D4C-4F90-781B-B62F-K	Shining	\N	\N	02:26:00
 10.5240/09A3-1F6E-3538-DF46-5C6F-I	Back to the Future	\N	\N	\N
 10.5240/5DA5-C386-2911-7E2B-1782-L	Back to the Future Part II	\N	\N	\N
 \.

@@ -71,6 +71,7 @@ Di seguito si riporta l'intero schema logico dopo aver effettuato tutte le trasf
 - _Provenienza_
 
 ### Recensione (libro)
+
 - **ID** → [Elemento (libro)](#elemento-libro)
 - Commento
 - Valutazione

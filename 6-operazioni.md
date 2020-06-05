@@ -73,7 +73,7 @@ FROM gioco_recensione gr
 JOIN gioco_elemento gel on gr.id = gel.id
 JOIN gioco_edizione ge on gel.istanza_di = ge.id
 JOIN gioco g on ge.relativa_a = g.id
-WHERE g = $id_gioco;
+WHERE g.id = $id_gioco;
 ```
 
 ## Visualizzazione di tutte le edizioni di un dato editore
