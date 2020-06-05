@@ -4,7 +4,7 @@ In Alexandria non sono presenti molti dati quantitativi: la maggior parte degli 
 
 Si è considerata la possibilità di inserire nella base di dati un attributo contenente il **conteggio** di `Elementi` posseduti da un utente.
  
-<!--TODO: creare una nuova immagine-->
+![](img/4-4-dati-derivati/conteggio-elementi.png)
  
 Si riportano sotto tutti i calcoli effettuati per decidere se aggiungere o no il dato derivato.
  
