@@ -79,11 +79,7 @@ Osservando lo schema, si nota che le relazioni "narrata da" e "scritto da" sono 
 
 Questa particolare struttura compare in molte parti dello schema relazionale: per evitare di ridescriverla ogni volta e per permettere invece di referenziarla, si è deciso di darle il nome **1NN0** (leggi: "inno").
 
-<!--Il nome gliel'ho dato io, dici che può andare bene?-->
-
-<!--Urgh. Questo paragrafo mi fa schifo. Come si potrebbe riscrivere?-->
-
-È stata scelta la cardinalità **0 a N** dal lato dell'opera, in modo da evitare agli utenti la compilazione obbligatoria di tutti i campi di un opera al momento della sua aggiunta, ma permettendo una compilazione più dettagliata in futuro, prevedendo anche casi in cui ad esempio un libro sia stato scritto da più autori.
+La lato dell'opera si ha una cardinalità **0 a N**, in modo da evitare agli utenti la compilazione obbligatoria di tutti i campi di un opera al momento della sua aggiunta, ma permettendo una loro compilazione più dettagliata in futuro, prevedendo anche casi in cui ad esempio un libro sia stato scritto da più autori.
 
 Dato che si è voluto rendere possibili query come "quali `Libri` ha scritto questo autore" o "quali `Libri` ha narrato questo narratore" e che inserire nel database autori o narratori a cui non appartiene nessun libro non avrebbe alcun senso, si è scelto invece di usare una cardinalità **1 a N** dall'altro lato della relazione.
 
