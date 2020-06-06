@@ -45,7 +45,7 @@ SELECT version();
 Esso è stato ottenuto tramite [`pg_dump`](https://www.postgresql.org/docs/9.3/app-pgdump.html), un'utilità per l'archiviazione di database Postgres, eseguito con il seguente comando Bash:
 
 ```bash
-pg_dump --dbname="alexandria" --schema="public" --file="5-database.sql"
+pg_dump --dbname=alexandria --schema='public' --file="5-database.sql" --no-owner --no-acl
 ```
 
 È possibile ricreare il database eseguendo manualmente tutte le istruzioni contenute nel file `.sql`, oppure eseguendo [`pg_restore`](https://www.postgresql.org/docs/9.3/app-pgrestore.html), la controparte di `pg_dump` per il ripristino, con il seguente comando Bash:
