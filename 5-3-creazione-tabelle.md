@@ -262,7 +262,7 @@ ALTER TABLE ONLY public.libro_edizione
 
 La tabella delle edizioni di un libro include due _CHECK_: uno che controlla che le pagine, se specificate, siano un numero positivo, e un'altro che controlla che gli ISBN siano in un formato valido.
 
-In particolare, per quest'ultimo, è stata creata una funzione di utilità `is_numeric`, che verifica che tutti i caratteri di una stringa siano numerici: questa funzione viene poi usata per controllare che tutti i caratteri dell'ISBN siano numeri, permettendo però anche una `X` in ultima posizione. 
+In particolare, per quest'ultimo, è stata creata una funzione di utilità `is_numeric`, che verifica che tutti i caratteri di una stringa siano numerici: questa funzione viene poi usata per controllare che tutti i caratteri dell'ISBN siano numeri, permettendo però anche una `X` in ultima posizione (l'ultima cifra degli ISBN più vecchi era in base-11 e utilizzava la lettera X come 10). 
 
 ### `utente`
 
