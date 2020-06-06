@@ -74,7 +74,7 @@ Si notino dunque i due _CONSTRAINT_ `audiolibro_recensione_pkey` e `id`.
 
 La valutazione delle recensioni deve essere obbligatoriamente tra 0 e 100: a tale scopo, è stato introdotto un _CHECK_ sulla tabella che verifichi questa condizione.
 
-La data di pubblicazione è rappresentata da un _timestamp_, tipo che rappresenta un istante specifico di tempo con precisione fino ai secondi.
+La data di pubblicazione è rappresentata da un _timestamp_, tipo che rappresenta un istante specifico di tempo con precisione fino ai microsecondi.
 
 ### `film`
 
