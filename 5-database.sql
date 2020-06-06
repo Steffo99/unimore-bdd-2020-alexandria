@@ -1306,19 +1306,12 @@ COPY public.libro_correlazioni (id_1, id_2) FROM stdin;
 --
 
 COPY public.libro_editore (parte_isbn, nome) FROM stdin;
-389	Sellerio editore
-6184	Mondadori
-7926	Einaudi ragazzi
-912	Panini comics
-6746	De Agostini
+459	Adelphi
+8451	Adriano Salani Editore
+04	Arnoldo Mondadori Editore
+6918	Adriano Salani Editore
+452	Bompiani
 486	Libri Oro Rizzoli
-09	Giunti editore
-384	Edizioni Piemme
-566	Edizioni Piemme
-6212	Magazzini Salani
-6821	Magazzini Salani
-7366	Magazzini Salani
-9367	Magazzini Salani
 \.
 
 
