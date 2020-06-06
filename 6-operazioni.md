@@ -79,5 +79,9 @@ WHERE g.id = $id_gioco;
 ## Visualizzazione di tutte le edizioni di un dato editore
 
 ```sql
-SELECT * FROM libro_editore ld JOIN libro_edizione lz ON ld.parte_isbn = substr(lz.isbn, 5, 5 + length(ld.parte_isbn));
+SELECT * 
+    FROM libro_editore ld 
+    JOIN libro_edizione lz 
+        ON ld.parte_isbn = substr(lz.isbn, 6, length(ld.parte_isbn))
+    WHERE ld.nome = $nome_editore;
 ```
