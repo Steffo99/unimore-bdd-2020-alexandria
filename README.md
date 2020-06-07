@@ -24,9 +24,8 @@ Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.p
     4. [Dati derivati](4-4-dati-derivati.md)
     5. [Schema logico](4-5-schema-logico.md)
     6. [Verifica di normalizzazione](4-6-normalizzazione.md)
-5. **Progettazione fisica** ([dump](5-database.sql))
+5. **Schema del database** ([dump](5-database.sql))
     1. [Tecnologia database](5-1-tecnologia-database.md)
     2. [Creazione database](5-2-creazione-database.md)
     3. [Creazione tabelle](5-3-creazione-tabelle.md)
-6. **Programmazione database**
-    1. [Query preprogrammate per l'utilizzo del database](6-operazioni.md)
+6. **[Query preprogrammate per l'utilizzo del database](6-operazioni.md)**
