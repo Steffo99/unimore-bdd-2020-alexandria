@@ -1,38 +1,45 @@
-# `alexandria`
+# ![Alexandria](img/0-README/alexandria.png)
 
-A database for an hypotetical website for users to organize and share their media library.
+Un database per un ipotetico sito web di gestione libreria multimediale
 
-Made as a collaboration between [@Steffo99](https://github.com/Steffo99/) and [@Cookie-CHR](https://github.com/Cookie-CHR) for the [Basi di Dati](http://personale.unimore.it/rubrica/contenutiad/rmartoglia/2019/58030/N0/N0/9999) exam at [Unimore](https://www.unimore.it/).
+Realizzato in collaborazione tra [@Steffo99](https://github.com/Steffo99/) e [@Cookie-CHR](https://github.com/Cookie-CHR) per l'esame di [Basi di Dati](http://personale.unimore.it/rubrica/contenutiad/rmartoglia/2019/58030/N0/N0/9999) dell'[Unimore](https://www.unimore.it/).
 
-> This project is still a work in progress!
+## Specifiche
 
-> Parts of this project may be in Italian, as the Basi di Dati course is in Italian.
+Le specifiche di questo progetto sono disponibili nel file [`spec.pdf`](0-spec.pdf).
 
-## Specification
+## Capitoli della relazione
 
-The specification for the project is available [in the `spec.pdf` file](/spec.pdf).
+1. **[Descrizione](1-descrizione.md)**
+2. **[Glossario](2-glossario.md)**
+3. **Progettazione concettuale**
+    1. [Schema scheletro iniziale](3-1-schema-scheletro.md)
+    2. [Classificazione delle gerarchie](3-2-gerarchie.md)
+    3. [Identificazione delle autoassociazioni](3-3-autoassociazioni.md)
+    4. [Schema scheletro finale](3-4-schema-finale.md)
+4. **Progettazione logica**
+    1. [Eliminazione delle gerarchie](4-1-eliminazione-gerarchie.md)
+    2. [Eliminazione delle chiavi esterne](4-2-eliminazione-chiavi-esterne.md)
+    3. [Trasformazione degli attributi composti](4-3-trasformazione-degli-attributi-composti.md)
+    4. [Dati derivati](4-4-dati-derivati.md)
+    5. [Schema logico](4-5-schema-logico.md)
+    6. [Verifica di normalizzazione](4-6-normalizzazione.md)
+5. **Schema del database**
+    1. [Tecnologia database](5-1-tecnologia-database.md)
+    2. [Creazione database](5-2-creazione-database.md)
+    3. [Creazione tabelle](5-3-creazione-tabelle.md)
+6. **[Query preprogrammate per l'utilizzo del database](6-operazioni.md)**
 
-## Tasks
+## Formati alternativi
 
-- [x] [Descrizione](/descrizione.md)
-- [x] [Glossario](/glossario.md)
-- [x] [Schema scheletro](/schema-scheletro.drawio)
-- [x] [Identificazione delle autoassociazioni](/autoassociazione.md)
-- [x] [Identificazione delle chiavi esterne](/chiaviesterne.md)
-- [ ] ...?
-- [x] [Schema finale](/schema-finale.drawio)
+La relazione è disponibile anche in [formato `.odt`](relazione.odt) e in [formato `.pdf`](relazione.pdf).
 
-## Compiling
+## Riproduzione del database
 
-### Requirements
-
-- [Pandoc](https://pandoc.org/)
-- [MiKTeX](https://miktex.org/)
-
-### Instructions
-
-To create PDF files from the Markdown sources in this project, you can run the Makefile with the `make` command, or compile them manually with the following command:
+Su una macchina con PostgreSQL 10.12 o superiore installato, eseguire in un terminale / prompt il seguente comando:
 
 ```bash
-pandoc -o filename.pdf filename.md
+pg_restore --dbname="alexandria" --schema="public" --file="5-database.sql"
 ```
+
+> La procedura per creare una copia del database è descritta in dettaglio nel file [`5-1-tecnologia-database.md`](5-1-tecnologia-database.md). 

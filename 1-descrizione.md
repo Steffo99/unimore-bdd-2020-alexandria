@@ -1,6 +1,6 @@
 # Descrizione
 
-Si vuole realizzare una base di dati a supporto di un sito web che permetta la creazione, gestione e condivisione della propria raccolta multimediale, come è possibile fare su altri siti web, quali [aNobii](https://www.anobii.com/), [MyAnimeList](https://myanimelist.net/) e [The Backloggery](https://backloggery.com/).
+Si vuole realizzare una base di dati a supporto di un sito web che permetta la creazione, gestione e condivisione della propria libreria multimediale, come è possibile fare su altri siti web, quali [aNobii](https://www.anobii.com/), [MyAnimeList](https://myanimelist.net/) e [The Backloggery](https://backloggery.com/).
 
 Il sito sarà suddiviso in sezioni, ciascuna riguardante un [media](https://it.wikipedia.org/wiki/Mezzo_di_comunicazione_di_massa) diverso:
 
@@ -30,13 +30,14 @@ Gli utenti potranno aggiungere _elementi_ alla loro raccolta multimediale.
 
 Un elemento rappresenta una copia di un libro, di un film o di un videogioco posseduta da un utente.
 
-Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per ogni tipologia:
+Ogni elemento avrà associato uno **stato** da una lista di opzioni diverse per ogni tipologia:
 
 - Libro
     - Da iniziare
     - Iniziato
     - Finito
     - Abbandonato
+    - Non applicabile
 - Film
     - Da vedere
     - Visto
@@ -45,6 +46,7 @@ Ogni elemento avrà associato uno **stato** da una lista di opzioni diversa per 
     - Iniziato
     - Finito
     - Completato al 100%
+    - Non applicabile
 
 Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
 
@@ -70,8 +72,13 @@ Inoltre, ogni elemento avrà associata una **provenienza** da un'altra lista:
     - Perso / Venduto / Restituito / Non più posseduto
     - Altro
     
-Un utente è in grado di creare una nuova pagina di un determinato elemento (se, ad esempio, ha letto un libro non ancora registrato nel database). Per fare ciò dovrà inserire obbligatoriamente il tipo di elemento, il suo dato chiave e il titolo dell'opera, mentre gli altri campi sono facoltativi: possono essere inseriti per completezza, oppure lasciati vuoti. Un utente può inoltre modificare una pagina già esistente al fine di aggiungervi informazioni o correggere errori.
-Un amministratore è in grado di eliminare le pagine, in caso esse rappresentino elementi non realmente esistenti.
+Un utente potrà creare un nuovo oggetto (edizione di libro, film...) di cui aggiungere poi un elemento nella sua libreria.
+ 
+Per farlo dovrà selezionarne il tipo e inserirne la chiave (ISBN, EIDR...) e il titolo; tutti gli altri campi saranno facoltativi: possono essere compilati per completezza, oppure lasciati vuoti.
+ 
+Un utente può inoltre modificare una pagina già esistente al fine di aggiungervi informazioni o correggere errori.
+
+Un amministratore è in grado di eliminare le pagine, in caso esse rappresentino oggetti non realmente esistenti.
 
 ## Recensioni
 
@@ -83,9 +90,7 @@ La media delle valutazioni delle recensioni relativa a un dato libro / film / se
 
 Gli utenti potranno decidere in qualsiasi momento di eliminare una loro recensione.
 
-Gli amministratori, oltre a poter decidere di eliminare recensioni, potranno marcarle come _nascoste_ nel caso le considerino inappropriate o non inerenti.
-
-Le recensioni nascoste potranno apparire nel sito, ma avranno un aspetto diverso e il commento all'interno non sarà visibile a meno che l'utente non clicchi un tasto.
+Gli amministratori potranno eliminare le recensioni nel caso queste violino i termini di servizio del sito web.
 
 ## Libri ed edizioni
 
